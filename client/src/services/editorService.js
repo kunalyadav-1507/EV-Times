@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/news";
-
+const API = `${import.meta.env.VITE_API_URL}/news`;
 
 // CREATE NEWS
 export const createNews = async (newsData) => {

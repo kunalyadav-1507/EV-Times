@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/news";
+const API = `${import.meta.env.VITE_API_URL}/news`;
 
 const EXTERNAL_API =
-  "http://localhost:5000/api/external-news";
+  `${import.meta.env.VITE_API_URL}/external-news`;
+;
 
 
 const token = localStorage.getItem("token");

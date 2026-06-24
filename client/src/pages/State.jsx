@@ -29,6 +29,7 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import Footer from "../components/Footer";
+import SkeletonCard from "../components/SkeletonCard";
 
 
 function EVNews() {
@@ -438,18 +439,12 @@ function EVNews() {
 
 
   if (loading) {
-
-    return (
-
-      <h2>
-
-        Loading EV News...
-
-      </h2>
-
-    );
-
-  }
+  return (
+    <SkeletonCard
+      type="state"
+    />
+  );
+}
 
 
   return (

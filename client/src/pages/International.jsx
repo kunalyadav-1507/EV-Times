@@ -414,18 +414,12 @@ function EVNews() {
 
 
   if (loading) {
-    return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        {[...Array(6)].map((_, index) => (
-
-          <SkeletonCard key={index} />
-
-        ))}
-
-      </div>
-    );
-  }
+  return (
+    <SkeletonCard
+      type="international"
+    />
+  );
+}
 
 
   return (

@@ -34,6 +34,7 @@ import {
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import SkeletonCard from "../components/SkeletonCard";
 
 
 function SearchResults() {
@@ -375,18 +376,12 @@ function SearchResults() {
 
 
   if (loading) {
-
-    return (
-
-      <h2>
-
-        Searching EV News...
-
-      </h2>
-
-    );
-
-  }
+  return (
+    <SkeletonCard
+      type="search"
+    />
+  );
+}
 
 
 

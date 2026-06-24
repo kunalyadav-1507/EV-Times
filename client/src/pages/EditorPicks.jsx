@@ -32,6 +32,7 @@ import toast from "react-hot-toast";
 
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import SkeletonCard from "../components/SkeletonCard";
 
 
 function SearchResults() {
@@ -433,18 +434,12 @@ function SearchResults() {
 
 
   if (loading) {
-
-    return (
-
-      <h2>
-
-        Searching EV News...
-
-      </h2>
-
-    );
-
-  }
+  return (
+    <SkeletonCard
+      type="editor"
+    />
+  );
+}
   const heroArticle = news[0];
   const topPicks = news.slice(1, 4);
   const trendingPicks = news.slice(0, 7);

@@ -91,6 +91,20 @@ const externalNewsSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    aiGenerated: {
+  type: Boolean,
+  default: false
+},
+
+draftSource: {
+  type: String,
+  enum: ["editor", "system"],
+  default: "editor"
+},
+
+draftGeneratedAt: {
+  type: Date
+},
 
     publishedAt: {
       type: Date,

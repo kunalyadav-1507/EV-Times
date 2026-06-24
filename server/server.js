@@ -5,6 +5,7 @@ const { GoogleGenAI } = require("@google/genai");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
+require("./jobs/draftScheduler");
 const aiRoutes = require("./routes/aiRoutes");
 
 const authRoutes = require("./routes/authRoutes");

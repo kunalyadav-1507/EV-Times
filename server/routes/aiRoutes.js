@@ -6,6 +6,10 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
+const generateDraft =
+  require("../services/generateDraft");
+
+
 const ExternalNews =
   require("../models/ExternalNews");
 
@@ -102,80 +106,12 @@ router.post(
 
       }
 
-      const prompt = `
-Rewrite this news article.
+      await generateDraft(news);
 
-Title:
-${news.title}
-
-Description:
-${news.description}
-
-Content:
-${news.content}
-
-Requirements:
-
-1. SEO Title
-2. Summary
-3. 700-900 word article
-
-Rules:
-
-- Professional news tone
-- Add useful background context
-- Do not invent facts
-- Do not speculate
-- Return JSON only
-
-Example:
-
-{
-  "title": "",
-  "summary": "",
-  "content": ""
-}
-`;
-
-      const response =
-        await ai.models.generateContent({
-
-          model:
-            "gemini-3.1-flash-lite",
-
-          contents: prompt,
-
-        });
-
-      const result =
-        JSON.parse(
-          response.text
-        );
-
-      news.aiTitle =
-        result.title;
-
-      news.aiSummary =
-        result.summary;
-
-      news.aiContent =
-        result.content;
-
-      news.status =
-        "draft";
-
-      news.processed =
-        true;
-
-      await news.save();
-
-      res.status(200).json({
-
-        success: true,
-
-        news
-
-      });
+res.status(200).json({
+  success: true,
+  news
+});
 
     }
 

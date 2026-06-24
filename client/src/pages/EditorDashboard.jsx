@@ -340,45 +340,45 @@ function EditorDashboard() {
   }, []);
 
   const handleGenerateDraft =
-    async (id) => {
+  async (id) => {
 
-      try {
+    try {
 
-        const response =
-          await fetch(
-
-            `http://localhost:5000/api/ai/generate-draft/${id}`,
-
-            {
-              method: "POST"
-            }
-
-          );
-
-        const data =
-          await response.json();
-
-        alert(
-          "Draft Generated"
+      const response =
+        await fetch(
+          `http://localhost:5000/api/ai/generate-draft/${id}`,
+          {
+            method: "POST"
+          }
         );
 
-        fetchRawNews();
+      const data =
+        await response.json();
 
-        fetchDraftNews();
+      // Remove instantly from UI
+      setRawNews(prev =>
+        prev.filter(
+          news => news._id !== id
+        )
+      );
 
-      }
+      alert("Draft Generated");
 
-      catch (error) {
+      fetchDraftNews();
 
-        console.log(error);
+    }
 
-        alert(
-          "Draft Generation Failed"
-        );
+    catch (error) {
 
-      }
+      console.log(error);
 
-    };
+      alert(
+        "Draft Generation Failed"
+      );
+
+    }
+
+  };
 
   const handleSubmitToAdmin =
     async (id) => {

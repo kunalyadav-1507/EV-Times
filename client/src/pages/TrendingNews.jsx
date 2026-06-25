@@ -1,10 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 
-import {
-
-  useLocation
-
-} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -39,7 +34,7 @@ import SkeletonCard from "../components/SkeletonCard";
 
 function SearchResults() {
 
-  const location = useLocation();
+  
 
 
 
@@ -511,10 +506,7 @@ function SearchResults() {
 
                 <Link
                   to={`/news/${news[0]?._id}`}
-                  state={{
-                    article: news[0],
-                    relatedArticles: news,
-                  }}
+                  
                   className="
           bg-white
           overflow-hidden
@@ -595,10 +587,7 @@ function SearchResults() {
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                       className="
               bg-white
               overflow-hidden
@@ -791,10 +780,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${news[5]?._id}`}
-                    state={{
-                      article: news[5],
-                      relatedArticles: news,
-                    }}
+                    
                     className="block"
                   >
 
@@ -836,10 +822,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${news[6]?._id}`}
-                    state={{
-                      article: news[6],
-                      relatedArticles: news
-                    }}
+                    
                     className="block"
                   >
 
@@ -861,10 +844,7 @@ function SearchResults() {
                 <div>
                   <Link
                     to={`/news/${news[7]?._id}`}
-                    state={{
-                      article: news[7],
-                      relatedArticles: news,
-                    }}
+                    
                     className="block"
                   >
 
@@ -905,10 +885,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${news[8]?._id}`}
-                    state={{
-                      article: news[8],
-                      relatedArticles: news
-                    }}
+                    
                     className="block"
                   >
 
@@ -930,10 +907,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${news[9]?._id}`}
-                    state={{
-                      article: news[9],
-                      relatedArticles: news,
-                    }}
+                    
                     className="block"
                   >
 
@@ -973,10 +947,7 @@ function SearchResults() {
                   <hr className="mb-4" />
                   <Link
                     to={`/news/${news[10]?._id}`}
-                    state={{
-                      article: news[10],
-                      relatedArticles: news
-                    }}
+                    
                     className="block"
                   >
 
@@ -998,10 +969,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${news[11]?._id}`}
-                    state={{
-                      article: news[11],
-                      relatedArticles: news,
-                    }}
+                    
                     className="block"
                   >
 
@@ -1041,10 +1009,7 @@ function SearchResults() {
                   <hr className="mb-4" />
                   <Link
                     to={`/news/${news[12]?._id}`}
-                    state={{
-                      article: news[12],
-                      relatedArticles: news
-                    }}
+                    
                     className="block"
                   >
 
@@ -1119,10 +1084,7 @@ function SearchResults() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
                 block
         border-b

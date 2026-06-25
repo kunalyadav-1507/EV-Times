@@ -1,10 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 
-import {
-
-  useLocation
-
-} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -39,7 +34,7 @@ import SkeletonCard from "../components/SkeletonCard";
 
 function SearchResults() {
 
-  const location = useLocation();
+  
 
 
 
@@ -575,10 +570,7 @@ function SearchResults() {
 
                   <Link
                     to={`/news/${heroArticle?._id}`}
-                    state={{
-                      article: heroArticle,
-                      relatedArticles: news,
-                    }} className="mt-5">
+                     className="mt-5">
 
                     <h2 className="
             text-2xl md:text-3xl lg:text-4xl
@@ -619,10 +611,7 @@ function SearchResults() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
           group
           cursor-pointer
@@ -695,10 +684,7 @@ function SearchResults() {
                   <Link
                     key={index}
                     to={`/news/${article._id}`}
-                    state={{
-                      article,
-                      relatedArticles: news,
-                    }}
+                    
                     className=" pb-6"
                   >
 
@@ -766,10 +752,7 @@ function SearchResults() {
               <Link
                 key={index}
                 to={`/news/${article._id}`}
-                state={{
-                  article,
-                  relatedArticles: news,
-                }}
+                
                 className="
                 block
         border-b

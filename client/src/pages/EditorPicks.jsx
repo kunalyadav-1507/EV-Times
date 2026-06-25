@@ -1,10 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 
-import {
-
-  useLocation
-
-} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -585,10 +580,7 @@ function SearchResults() {
 
             <Link
               to={`/news/${heroArticle?._id}`}
-              state={{
-                article: heroArticle,
-                relatedArticles: news,
-              }}
+              
               className="block mb-20"
             >
 
@@ -697,10 +689,7 @@ function SearchResults() {
               <Link
                 key={index}
                 to={`/news/${article._id}`}
-                state={{
-                  article,
-                  relatedArticles: news,
-                }}
+                
                 className="
         block
         group
@@ -773,10 +762,7 @@ function SearchResults() {
               <Link
                 key={index}
                 to={`/news/${article._id}`}
-                state={{
-                  article,
-                  relatedArticles: news,
-                }}
+                
                 className="
       min-w-[100px]
       flex-shrink-0
@@ -849,10 +835,7 @@ function SearchResults() {
               <Link
                 key={index}
                 to={`/news/${article._id}`}
-                state={{
-                  article,
-                  relatedArticles: news,
-                }}
+                
                 className="
                 block
         border-b

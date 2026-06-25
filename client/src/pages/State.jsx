@@ -475,10 +475,7 @@ function EVNews() {
               <div className="lg:col-span-8">
                 <Link
                   to={`/news/${news[0]?._id}`}
-                  state={{
-                    article: news[0],
-                    relatedArticles: news,
-                  }}
+                  
                 >
                   <img
                     src={
@@ -541,10 +538,7 @@ function EVNews() {
                   <Link
                     key={index}
                     to={`/news/${article._id}`}
-                    state={{
-                      article,
-                      relatedArticles: trendingNews,
-                    }}
+                    
                     className="block"
                   >
 
@@ -650,10 +644,7 @@ function EVNews() {
                   <Link
                     key={index}
                     to={`/news/${article._id}`}
-                    state={{
-                      article,
-                      relatedArticles: news,
-                    }}
+                    
                     className="block"
                   >
 

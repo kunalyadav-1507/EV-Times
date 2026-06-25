@@ -63,7 +63,6 @@ const navigate =
         setArticle(
           response.data.article
         );
-        console.log("Article State:", response.data.article);
 
         setRelatedArticles(
           response.data.relatedArticles
@@ -314,7 +313,6 @@ const navigate =
 
   };
 
-console.log("Current article:", article);
   if (loading) {
 
   return <h2>Loading...</h2>;
@@ -847,21 +845,12 @@ md:first-letter:text-7xl first-letter:font-bold first-letter:mr-3 first-letter:f
 
                       <Link
 
-                        key={index}
+  key={index}
 
-                        to="/news-details"
+  to={`/news/${item._id}`}
 
-                        state={{
-
-                          article: item,
-
-                          relatedArticles
-
-                        }}
-
-                        className="block mb-6 group"
-
-                      >
+  className="block mb-6 group"
+>
 
                         <div className="flex gap-4">
 
@@ -1000,33 +989,24 @@ md:first-letter:text-7xl first-letter:font-bold first-letter:mr-3 first-letter:f
 
                   <Link
 
-                    key={index}
+  key={index}
 
-                    to="/news-details"
+  to={`/news/${item._id}`}
 
-                    state={{
+  onClick={() =>
 
-                      article: item,
+    window.scrollTo({
 
-                      relatedArticles
+      top:0,
 
-                    }}
+      behavior:"smooth"
 
-                    onClick={() =>
+    })
 
-                      window.scrollTo(
+  }
 
-                        0,
-
-                        0
-
-                      )
-
-                    }
-
-                    className="block border-b py-8 group "
-
-                  >
+  className="block border-b py-8 group"
+>
 
                     <div className="grid md:grid-cols-12 gap-6 items-center">
 
@@ -1148,33 +1128,23 @@ md:first-letter:text-7xl first-letter:font-bold first-letter:mr-3 first-letter:f
 
                   <Link
 
-                    key={index}
+  key={index}
 
-                    to="/news-details"
+  to={`/news/${item._id}`}
 
-                    state={{
+  onClick={() =>
 
-                      article: item,
+    window.scrollTo({
 
-                      relatedArticles
+      top:0,
 
-                    }}
+      behavior:"smooth"
 
-                    onClick={() =>
+    })
 
-                      window.scrollTo(
+  }
 
-                        0,
-
-                        0
-
-                      )
-
-                    }
-
-                    className="group"
-
-                  >
+>
 
                     <div
   className="

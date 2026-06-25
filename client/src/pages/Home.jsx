@@ -487,10 +487,7 @@ setNews(
 
                 <Link
                   to={`/news/${combinedNews[4]?._id}`}
-                  state={{
-                    article: combinedNews[4],
-                    relatedArticles: combinedNews
-                  }}
+                  
                 >
 
                   <img
@@ -565,10 +562,7 @@ setNews(
 
                           to={`/news/${article._id}`}
 
-                          state={{
-                            article,
-                            relatedArticles: combinedNews
-                          }}
+                          
 
                           className="
                 block
@@ -597,10 +591,7 @@ setNews(
 
                 <Link
                   to={`/news/${combinedNews[1]?._id}`}
-                  state={{
-                    article: combinedNews[1],
-                    relatedArticles: combinedNews
-                  }}
+                  
                 >
 
                   <img
@@ -638,10 +629,7 @@ setNews(
 
                         to={`/news/${article._id}`}
 
-                        state={{
-                          article,
-                          relatedArticles: combinedNews
-                        }}
+                        
 
                         className="
               flex
@@ -702,10 +690,7 @@ setNews(
 
                   <Link
                     to={`/news/${combinedNews[11]?._id}`}
-                    state={{
-                      article: combinedNews[11],
-                      relatedArticles: combinedNews
-                    }}
+                    
                   >
 
                     <img
@@ -734,10 +719,7 @@ setNews(
                         <Link
                           key={index}
                           to={`/news/${article._id}`}
-                          state={{
-                            article,
-                            relatedArticles: combinedNews
-                          }}
+                          
                           className="block py-3 border-b border-gray-300 hover:underline"
                         >
 
@@ -763,10 +745,7 @@ setNews(
 
                   <Link
                     to={`/news/${combinedNews[15]?._id}`}
-                    state={{
-                      article: combinedNews[15],
-                      relatedArticles: combinedNews
-                    }}
+                    
                   >
 
                     <img
@@ -795,10 +774,7 @@ setNews(
                         <Link
                           key={index}
                           to={`/news/${article._id}`}
-                          state={{
-                            article,
-                            relatedArticles: combinedNews
-                          }}
+                          
                           className="block py-3 border-b border-gray-300 hover:underline"
                         >
 
@@ -890,10 +866,7 @@ setNews(
 
                     <Link
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: combinedNews,
-                      }}
+                      
                     >
 
                       <img
@@ -972,10 +945,7 @@ setNews(
 
                   <Link
                     to={`/news/${combinedNews[2]?._id}`}
-                    state={{
-                      article: combinedNews[2],
-                      relatedArticles: combinedNews,
-                    }}>
+                    >
 
                     <img
                       src={
@@ -1031,10 +1001,7 @@ setNews(
                       <Link
                         key={index}
                         to={`/news/${article._id}`}
-                        state={{
-                          article,
-                          relatedArticles: combinedNews,
-                        }}
+                        
                         className="
   flex
   gap-3
@@ -1071,10 +1038,7 @@ setNews(
                 </div>
                 <Link
                   to={`/news/${combinedNews[1]?._id}`}
-                  state={{
-                    article: combinedNews[1],
-                    relatedArticles: combinedNews,
-                  }}
+                  
                 >
 
 
@@ -1101,10 +1065,7 @@ setNews(
 
                     <Link
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: combinedNews,
-                      }}
+                      
                       className="
         grid
         md:grid-cols-[1fr_220px]
@@ -1176,10 +1137,7 @@ setNews(
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: combinedNews,
-                      }}
+                      
                       className="
           flex
           gap-4
@@ -1259,10 +1217,7 @@ setNews(
 
                   <Link
                     to={`/news/${combinedNews[8]?._id}`}
-                    state={{
-                      article: combinedNews[8],
-                      relatedArticles: combinedNews,
-                    }}>
+                    >
 
                     <img
                       src={
@@ -1317,10 +1272,7 @@ setNews(
                       <Link
                         key={index}
                         to={`/news/${article._id}`}
-                        state={{
-                          article,
-                          relatedArticles: combinedNews,
-                        }}
+                        
                         className="
           flex
           gap-4
@@ -1356,10 +1308,7 @@ setNews(
                 </div>
                 <Link
                   to={`/news/${combinedNews[1]?._id}`}
-                  state={{
-                    article: combinedNews[1],
-                    relatedArticles: combinedNews,
-                  }}
+                  
                 >
 
 
@@ -1386,10 +1335,7 @@ setNews(
 
                     <Link
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: combinedNews,
-                      }}
+                      
                       className="
         grid
         md:grid-cols-[1fr_220px]
@@ -1564,10 +1510,7 @@ setNews(
 
                       <Link
                         to={`/news/${evNews[16]?._id}`}
-                        state={{
-                          article: evNews[16],
-                          relatedArticles: evNews,
-                        }}
+                        
                       >
 
                         <img
@@ -1623,10 +1566,7 @@ setNews(
                             <Link
                               key={index}
                               to={`/news/${article._id}`}
-                              state={{
-                                article,
-                                relatedArticles: evNews,
-                              }}
+                              
                               className="
                     flex
                     gap-3
@@ -1697,10 +1637,7 @@ setNews(
                             <Link
                               key={index}
                               to={`/news/${article._id}`}
-                              state={{
-                                article,
-                                relatedArticles: combinedNews,
-                              }}
+                              
                               className="
          flex
   flex-col
@@ -1754,10 +1691,7 @@ setNews(
 
                           <Link
                             to={`/news/${chunk[5]?._id}`}
-                            state={{
-                              article: chunk[5],
-                              relatedArticles: combinedNews,
-                            }}
+                            
                             className="block mt-12"
                           >
 

@@ -475,10 +475,7 @@ function EVNews() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
         block
         border-b
@@ -532,10 +529,7 @@ function EVNews() {
 
                     <Link
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                     >
 
                       <img
@@ -584,10 +578,7 @@ function EVNews() {
                 <Link
                   key={index}
                  to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                 >
 
                   <img
@@ -629,10 +620,7 @@ function EVNews() {
               <Link
                 key={index}
                 to={`/news/${article._id}`}
-                state={{
-                  article,
-                  relatedArticles: news,
-                }}
+                
               >
 
                 <img
@@ -693,10 +681,7 @@ function EVNews() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       grid
       grid-cols-1
@@ -776,10 +761,7 @@ lg:grid-cols-[1fr_300px]
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       flex
       gap-4

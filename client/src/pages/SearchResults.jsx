@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 
-import {
 
-  useLocation
-
-} from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -39,7 +35,7 @@ import SkeletonCard from "../components/SkeletonCard";
 
 function SearchResults() {
 
-  const location = useLocation();
+
 
   const query =
 
@@ -563,10 +559,7 @@ function SearchResults() {
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                       className="
                       block
     border-b

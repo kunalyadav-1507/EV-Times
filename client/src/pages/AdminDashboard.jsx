@@ -934,11 +934,7 @@ function AdminDashboard() {
                           <Link
                             key={index}
                             to={`/news/${article._id}`}
-                            state={{
-                              article,
-                              relatedArticles:
-                                externalNews
-                            }}
+                            
                             className="
               flex
               justify-between
@@ -1921,10 +1917,7 @@ function AdminDashboard() {
                     <Link
                       key={article._id}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: filteredNews,
-                      }}
+                      
                       className="
     block
     bg-white

@@ -440,10 +440,7 @@ function EVNews() {
 
               <Link
                 to={`/news/${news[0]?._id}`}
-                state={{
-                  article: news[0],
-                  relatedArticles: news,
-                }}
+                
               >
 
                 <img
@@ -513,10 +510,7 @@ function EVNews() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
         flex
         gap-4
@@ -596,10 +590,7 @@ md:h-24
                   <Link
                     key={index}
                     to={`/news/${article._id}`}
-                    state={{
-                      article,
-                      relatedArticles: news,
-                    }}
+                    
                     className="
           bg-white
           rounded-xl
@@ -690,10 +681,7 @@ md:h-24
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
   flex
   flex-col
@@ -772,10 +760,7 @@ md:h-24
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       flex
       gap-4

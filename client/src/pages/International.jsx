@@ -453,10 +453,7 @@ function EVNews() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       block
       border-b
@@ -505,10 +502,7 @@ function EVNews() {
               ))}
               <Link
                 to={`/news/${news[3]?._id}`}
-                state={{
-                  article: news[3],
-                  relatedArticles: news,
-                }}
+                
               >
 
                 <img
@@ -559,10 +553,7 @@ function EVNews() {
             <div className="lg:col-span-6">
               <Link
                 to={`/news/${news[4]?._id}`}
-                state={{
-                  article: news[4],
-                  relatedArticles: news,
-                }}
+                
               >
                 <h2
                   className="
@@ -647,10 +638,7 @@ function EVNews() {
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                       className={`
         block
         ${index !== 0 ? "mt-8 pt-8 border-t border-gray-300" : ""}
@@ -690,10 +678,7 @@ function EVNews() {
                 <div>
                   <Link
                     to={`/news/${news[7]?._id}`}
-                    state={{
-                      article: news[7],
-                      relatedArticles: news,
-                    }}
+                    
                   >
 
                     <h3
@@ -776,10 +761,7 @@ function EVNews() {
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       flex
       gap-4
@@ -849,10 +831,7 @@ md:grid-cols-2
 lg:grid-cols-4 gap-8 mb-16">
                 <Link
                   to={`/news/${news[11]?._id}`}
-                  state={{
-                    article: news[11],
-                    relatedArticles: news,
-                  }}
+                  
                 >
 
                   <img
@@ -887,10 +866,7 @@ lg:grid-cols-4 gap-8 mb-16">
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                       className={`
         block
         ${index !== 0 ? "mt-8 pt-8 border-t border-gray-300" : ""}
@@ -928,10 +904,7 @@ lg:grid-cols-4 gap-8 mb-16">
 
                 <Link
                   to={`/news/${news[14]?._id}`}
-                  state={{
-                    article: news[14],
-                    relatedArticles: news,
-                  }}
+                  
                 >
 
                   <img
@@ -967,10 +940,7 @@ lg:grid-cols-4 gap-8 mb-16">
                     <Link
                       key={index}
                       to={`/news/${article._id}`}
-                      state={{
-                        article,
-                        relatedArticles: news,
-                      }}
+                      
                       className={`
         block
         ${index !== 0 ? "mt-8 pt-8 border-t border-gray-300" : ""}
@@ -1040,10 +1010,7 @@ lg:grid-cols-4 gap-8 mb-16">
                 <Link
                   key={index}
                   to={`/news/${article._id}`}
-                  state={{
-                    article,
-                    relatedArticles: news,
-                  }}
+                  
                   className="
       grid
       grid-cols-1
@@ -1133,10 +1100,7 @@ lg:grid-cols-[1fr_300px]
               </div>
               <Link
                 to={`/news/${news[20]?._id}`}
-                state={{
-                  article: news[20],
-                  relatedArticles: news,
-                }}
+                
                 className="block mb-6"
               >
 
@@ -1187,10 +1151,7 @@ lg:grid-cols-[1fr_300px]
                   <Link
                     key={index}
                     to={`/news/${article._id}`}
-                    state={{
-                      article,
-                      relatedArticles: news,
-                    }}
+                    
                   >
 
                     <img

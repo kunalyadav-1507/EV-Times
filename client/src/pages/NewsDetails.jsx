@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { useLocation, Link } from "react-router-dom";
-
+import {
+  useParams,
+  Link,
+  useNavigate
+} from "react-router-dom";
 import Navbar from "../components/Navbar";
+
+import { fetchNewsById }
+  from "../services/newsService";
 
 import { FaBookmark, FaRegBookmark, FaShareAlt } from "react-icons/fa";
 
@@ -12,31 +18,81 @@ import { toast }
 
   from "react-hot-toast";
 
-import { useNavigate }
 
-  from "react-router-dom";
   import Footer from "../components/Footer";
 
 
 function NewsDetails() {
 
-  const location = useLocation();
+  const { id } = useParams();
 
-  const article = location.state?.article;
-  const relatedArticles = location.state?.relatedArticles || [];
+const [article, setArticle] =
+  useState(null);
 
+const [
+  relatedArticles,
+  setRelatedArticles
+] = useState([]);
 
-  const [isSaved, setIsSaved] = useState(false);
-  const navigate = useNavigate();
+const [
+  loading,
+  setLoading
+] = useState(true);
+
+const [
+  isSaved,
+  setIsSaved
+] = useState(false);
+
+const navigate =
+  useNavigate();
+
 
   useEffect(() => {
 
-    window.scrollTo({
-      top: 0,
-      behavior: "instant"
-    });
+  const loadArticle =
+    async () => {
 
-  }, []);
+      try {
+
+        setLoading(true);
+
+        const response =
+          await fetchNewsById(id);
+
+        setArticle(
+          response.data.article
+        );
+        console.log("Article State:", response.data.article);
+
+        setRelatedArticles(
+          response.data.relatedArticles
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+      finally {
+
+        setLoading(false);
+
+      }
+
+    };
+
+  loadArticle();
+
+}, [id]);
 
 
   // CHECK SAVED STATUS
@@ -217,14 +273,7 @@ function NewsDetails() {
 
         article.title,
 
-      url:
-
-        article.url ||
-
-        article.articleUrl ||
-
-        window.location.href,
-
+      url: window.location.href,
     };
 
     try {
@@ -265,20 +314,18 @@ function NewsDetails() {
 
   };
 
+console.log("Current article:", article);
+  if (loading) {
 
-  if (!article) {
+  return <h2>Loading...</h2>;
 
-    return (
+}
 
-      <h2>
+if (!article) {
 
-        No Article Found
+  return <h2>No Article Found</h2>;
 
-      </h2>
-
-    );
-
-  }
+}
 
 
   return (
@@ -1203,6 +1250,7 @@ md:first-letter:text-7xl first-letter:font-bold first-letter:mr-3 first-letter:f
 }
 
 export default NewsDetails;
+
 
 
 

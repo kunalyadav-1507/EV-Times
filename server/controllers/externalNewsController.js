@@ -1184,6 +1184,75 @@ const getPublishedNews =
 
 };
 
+const getNewsById = async (req, res) => {
+
+  try {
+
+    const article =
+      await ExternalNews.findById(
+        req.params.id
+      );
+
+    if (!article) {
+
+      return res.status(404).json({
+
+        success: false,
+
+        message: "Article not found"
+
+      });
+
+    }
+
+    const relatedArticles =
+      await ExternalNews.find({
+
+        _id: {
+          $ne: article._id
+        },
+
+        category: article.category,
+
+        status: "published"
+
+      })
+
+      .sort({
+
+        publishedAt: -1
+
+      })
+
+      .limit(12);
+
+    res.status(200).json({
+
+      success: true,
+
+      article,
+
+      relatedArticles
+
+    });
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+
+      success: false,
+
+      message: error.message
+
+    });
+
+  }
+
+};
 
 
 module.exports = {
@@ -1200,6 +1269,7 @@ module.exports = {
   getEditorPicks,
   getAllExternalNews, deleteExternalNews,getRawNews,submitDraft,
   getPendingExternalNews,approveExternalNews,rejectExternalNews,
-  getDraftNews,updateDraft,getPublishedCount,getSubmittedCount,getPublishedNews
+  getDraftNews,updateDraft,getPublishedCount,getSubmittedCount,getPublishedNews,
+  getNewsById
 
 };

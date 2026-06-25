@@ -474,7 +474,7 @@ function EVNews() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -531,7 +531,7 @@ function EVNews() {
                   <SwiperSlide key={index}>
 
                     <Link
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,
@@ -583,7 +583,7 @@ function EVNews() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                 to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -628,7 +628,7 @@ function EVNews() {
 
               <Link
                 key={index}
-                to="/news-details"
+                to={`/news/${article._id}`}
                 state={{
                   article,
                   relatedArticles: news,
@@ -692,7 +692,7 @@ function EVNews() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -775,7 +775,7 @@ lg:grid-cols-[1fr_300px]
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,

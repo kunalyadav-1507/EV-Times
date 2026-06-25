@@ -87,3 +87,16 @@ export const fetchEditorPicks =
     );
 
 };
+
+
+// FETCH SINGLE NEWS
+
+export const fetchNewsById = async (id) => {
+
+  return await axios.get(
+
+    `${API}/external-news/article/${id}`
+
+  );
+
+};

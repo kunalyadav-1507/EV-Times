@@ -474,7 +474,7 @@ function EVNews() {
             <div className="grid lg:grid-cols-12 gap-8 mb-16">
               <div className="lg:col-span-8">
                 <Link
-                  to="/news-details"
+                  to={`/news/${news[0]?._id}`}
                   state={{
                     article: news[0],
                     relatedArticles: news,
@@ -540,7 +540,7 @@ function EVNews() {
 
                   <Link
                     key={index}
-                    to="/news-details"
+                    to={`/news/${article._id}`}
                     state={{
                       article,
                       relatedArticles: trendingNews,
@@ -649,7 +649,7 @@ function EVNews() {
 
                   <Link
                     key={index}
-                    to="/news-details"
+                    to={`/news/${article._id}`}
                     state={{
                       article,
                       relatedArticles: news,

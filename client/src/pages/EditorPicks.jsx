@@ -584,7 +584,7 @@ function SearchResults() {
           {heroArticle && (
 
             <Link
-              to="/news-details"
+              to={`/news/${heroArticle?._id}`}
               state={{
                 article: heroArticle,
                 relatedArticles: news,
@@ -696,7 +696,7 @@ function SearchResults() {
 
               <Link
                 key={index}
-                to="/news-details"
+                to={`/news/${article._id}`}
                 state={{
                   article,
                   relatedArticles: news,
@@ -772,7 +772,7 @@ function SearchResults() {
 
               <Link
                 key={index}
-                to="/news-details"
+                to={`/news/${article._id}`}
                 state={{
                   article,
                   relatedArticles: news,
@@ -848,7 +848,7 @@ function SearchResults() {
 
               <Link
                 key={index}
-                to="/news-details"
+                to={`/news/${article._id}`}
                 state={{
                   article,
                   relatedArticles: news,

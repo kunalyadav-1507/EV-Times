@@ -78,7 +78,7 @@ function App() {
 />
 
         <Route
-  path="/news-details"
+  path="/news/:id"
   element={<NewsDetails />}
 />
 

@@ -933,7 +933,7 @@ function AdminDashboard() {
 
                           <Link
                             key={index}
-                            to="/news-details"
+                            to={`/news/${article._id}`}
                             state={{
                               article,
                               relatedArticles:
@@ -1920,7 +1920,7 @@ function AdminDashboard() {
 
                     <Link
                       key={article._id}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: filteredNews,

@@ -486,7 +486,7 @@ setNews(
               <div className="xl:col-span-6">
 
                 <Link
-                  to="/news-details"
+                  to={`/news/${combinedNews[4]?._id}`}
                   state={{
                     article: combinedNews[4],
                     relatedArticles: combinedNews
@@ -563,7 +563,7 @@ setNews(
 
                           key={index}
 
-                          to="/news-details"
+                          to={`/news/${article._id}`}
 
                           state={{
                             article,
@@ -596,7 +596,7 @@ setNews(
                 {/* FEATURED */}
 
                 <Link
-                  to="/news-details"
+                  to={`/news/${combinedNews[1]?._id}`}
                   state={{
                     article: combinedNews[1],
                     relatedArticles: combinedNews
@@ -636,7 +636,7 @@ setNews(
 
                         key={index}
 
-                        to="/news-details"
+                        to={`/news/${article._id}`}
 
                         state={{
                           article,
@@ -701,7 +701,7 @@ setNews(
                   </h3>
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${combinedNews[11]?._id}`}
                     state={{
                       article: combinedNews[11],
                       relatedArticles: combinedNews
@@ -733,7 +733,7 @@ setNews(
 
                         <Link
                           key={index}
-                          to="/news-details"
+                          to={`/news/${article._id}`}
                           state={{
                             article,
                             relatedArticles: combinedNews
@@ -762,7 +762,7 @@ setNews(
                   </h3>
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${combinedNews[15]?._id}`}
                     state={{
                       article: combinedNews[15],
                       relatedArticles: combinedNews
@@ -794,7 +794,7 @@ setNews(
 
                         <Link
                           key={index}
-                          to="/news-details"
+                          to={`/news/${article._id}`}
                           state={{
                             article,
                             relatedArticles: combinedNews
@@ -889,7 +889,7 @@ setNews(
                   <SwiperSlide key={index}>
 
                     <Link
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: combinedNews,
@@ -971,7 +971,7 @@ setNews(
                   {/* LEFT IMAGE */}
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${combinedNews[2]?._id}`}
                     state={{
                       article: combinedNews[2],
                       relatedArticles: combinedNews,
@@ -1030,7 +1030,7 @@ setNews(
 
                       <Link
                         key={index}
-                        to="/news-details"
+                        to={`/news/${article._id}`}
                         state={{
                           article,
                           relatedArticles: combinedNews,
@@ -1070,7 +1070,7 @@ setNews(
 
                 </div>
                 <Link
-                  to="/news-details"
+                  to={`/news/${combinedNews[1]?._id}`}
                   state={{
                     article: combinedNews[1],
                     relatedArticles: combinedNews,
@@ -1100,7 +1100,7 @@ setNews(
                     <hr className="my-8 border-gray-300" />
 
                     <Link
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: combinedNews,
@@ -1175,7 +1175,7 @@ setNews(
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: combinedNews,
@@ -1258,7 +1258,7 @@ setNews(
                   {/* LEFT IMAGE */}
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${combinedNews[8]?._id}`}
                     state={{
                       article: combinedNews[8],
                       relatedArticles: combinedNews,
@@ -1316,7 +1316,7 @@ setNews(
 
                       <Link
                         key={index}
-                        to="/news-details"
+                        to={`/news/${article._id}`}
                         state={{
                           article,
                           relatedArticles: combinedNews,
@@ -1355,7 +1355,7 @@ setNews(
 
                 </div>
                 <Link
-                  to="/news-details"
+                  to={`/news/${combinedNews[1]?._id}`}
                   state={{
                     article: combinedNews[1],
                     relatedArticles: combinedNews,
@@ -1385,7 +1385,7 @@ setNews(
                     <hr className="my-8 border-gray-300" />
 
                     <Link
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: combinedNews,
@@ -1563,7 +1563,7 @@ setNews(
                       {/* FEATURED STORY */}
 
                       <Link
-                        to="/news-details"
+                        to={`/news/${evNews[16]?._id}`}
                         state={{
                           article: evNews[16],
                           relatedArticles: evNews,
@@ -1622,7 +1622,7 @@ setNews(
 
                             <Link
                               key={index}
-                              to="/news-details"
+                              to={`/news/${article._id}`}
                               state={{
                                 article,
                                 relatedArticles: evNews,
@@ -1696,7 +1696,7 @@ setNews(
 
                             <Link
                               key={index}
-                              to="/news-details"
+                              to={`/news/${article._id}`}
                               state={{
                                 article,
                                 relatedArticles: combinedNews,
@@ -1753,7 +1753,7 @@ setNews(
                         {chunk[5] && (
 
                           <Link
-                            to="/news-details"
+                            to={`/news/${chunk[5]?._id}`}
                             state={{
                               article: chunk[5],
                               relatedArticles: combinedNews,

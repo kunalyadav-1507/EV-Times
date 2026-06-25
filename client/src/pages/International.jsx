@@ -452,7 +452,7 @@ function EVNews() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -504,7 +504,7 @@ function EVNews() {
 
               ))}
               <Link
-                to="/news-details"
+                to={`/news/${news[3]?._id}`}
                 state={{
                   article: news[3],
                   relatedArticles: news,
@@ -558,7 +558,7 @@ function EVNews() {
 
             <div className="lg:col-span-6">
               <Link
-                to="/news-details"
+                to={`/news/${news[4]?._id}`}
                 state={{
                   article: news[4],
                   relatedArticles: news,
@@ -646,7 +646,7 @@ function EVNews() {
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,
@@ -689,7 +689,7 @@ function EVNews() {
 
                 <div>
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[7]?._id}`}
                     state={{
                       article: news[7],
                       relatedArticles: news,
@@ -775,7 +775,7 @@ function EVNews() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -848,7 +848,7 @@ grid-cols-1
 md:grid-cols-2
 lg:grid-cols-4 gap-8 mb-16">
                 <Link
-                  to="/news-details"
+                  to={`/news/${news[11]?._id}`}
                   state={{
                     article: news[11],
                     relatedArticles: news,
@@ -886,7 +886,7 @@ lg:grid-cols-4 gap-8 mb-16">
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,
@@ -927,7 +927,7 @@ lg:grid-cols-4 gap-8 mb-16">
                 </div>
 
                 <Link
-                  to="/news-details"
+                  to={`/news/${news[14]?._id}`}
                   state={{
                     article: news[14],
                     relatedArticles: news,
@@ -966,7 +966,7 @@ lg:grid-cols-4 gap-8 mb-16">
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,
@@ -1039,7 +1039,7 @@ lg:grid-cols-4 gap-8 mb-16">
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,
@@ -1132,7 +1132,7 @@ lg:grid-cols-[1fr_300px]
 
               </div>
               <Link
-                to="/news-details"
+                to={`/news/${news[20]?._id}`}
                 state={{
                   article: news[20],
                   relatedArticles: news,
@@ -1186,7 +1186,7 @@ lg:grid-cols-[1fr_300px]
 
                   <Link
                     key={index}
-                    to="/news-details"
+                    to={`/news/${article._id}`}
                     state={{
                       article,
                       relatedArticles: news,

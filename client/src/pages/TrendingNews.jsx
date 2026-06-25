@@ -510,7 +510,7 @@ function SearchResults() {
               news[0] && (
 
                 <Link
-                  to="/news-details"
+                  to={`/news/${news[0]?._id}`}
                   state={{
                     article: news[0],
                     relatedArticles: news,
@@ -594,7 +594,7 @@ function SearchResults() {
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,
@@ -790,7 +790,7 @@ function SearchResults() {
                 <div>
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[5]?._id}`}
                     state={{
                       article: news[5],
                       relatedArticles: news,
@@ -835,7 +835,7 @@ function SearchResults() {
                   <hr className="mb-4" />
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[6]?._id}`}
                     state={{
                       article: news[6],
                       relatedArticles: news
@@ -860,7 +860,7 @@ function SearchResults() {
                 {/* Column 2 */}
                 <div>
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[7]?._id}`}
                     state={{
                       article: news[7],
                       relatedArticles: news,
@@ -904,7 +904,7 @@ function SearchResults() {
                   <hr className="mb-4" />
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[8]?._id}`}
                     state={{
                       article: news[8],
                       relatedArticles: news
@@ -929,7 +929,7 @@ function SearchResults() {
                 <div>
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[9]?._id}`}
                     state={{
                       article: news[9],
                       relatedArticles: news,
@@ -972,7 +972,7 @@ function SearchResults() {
 
                   <hr className="mb-4" />
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[10]?._id}`}
                     state={{
                       article: news[10],
                       relatedArticles: news
@@ -997,7 +997,7 @@ function SearchResults() {
                 <div>
 
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[11]?._id}`}
                     state={{
                       article: news[11],
                       relatedArticles: news,
@@ -1040,7 +1040,7 @@ function SearchResults() {
 
                   <hr className="mb-4" />
                   <Link
-                    to="/news-details"
+                    to={`/news/${news[12]?._id}`}
                     state={{
                       article: news[12],
                       relatedArticles: news
@@ -1118,7 +1118,7 @@ function SearchResults() {
 
                 <Link
                   key={index}
-                  to="/news-details"
+                  to={`/news/${article._id}`}
                   state={{
                     article,
                     relatedArticles: news,

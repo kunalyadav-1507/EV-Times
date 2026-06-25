@@ -562,7 +562,7 @@ function SearchResults() {
 
                     <Link
                       key={index}
-                      to="/news-details"
+                      to={`/news/${article._id}`}
                       state={{
                         article,
                         relatedArticles: news,

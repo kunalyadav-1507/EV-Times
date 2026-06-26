@@ -1356,6 +1356,397 @@ if (type === "search") {
   );
 
 }
+
+if (type === "details") {
+
+  return (
+
+    <>
+
+      <Navbar />
+
+      <div className="bg-[#f5f5f5] min-h-screen">
+
+        {/* HERO */}
+
+        <div className="relative h-[75vh] lg:h-[90vh] w-full bg-gray-300 animate-pulse">
+
+          <div className="absolute bottom-0 left-0 w-full px-6 md:px-14 pb-10">
+
+            <div className="h-5 w-32 bg-gray-400 rounded mb-6"></div>
+
+            <div className="h-4 w-40 bg-gray-400 rounded mb-4"></div>
+
+            <div className="h-12 w-4/5 bg-gray-400 rounded mb-4"></div>
+
+            <div className="h-12 w-3/5 bg-gray-400 rounded mb-8"></div>
+
+            <div className="h-6 w-2/3 bg-gray-400 rounded"></div>
+
+          </div>
+
+        </div>
+
+        {/* CONTENT */}
+
+        <div className="max-w-7xl mx-auto px-5 py-16">
+
+          <div className="grid lg:grid-cols-12 gap-12">
+
+            {/* ARTICLE */}
+
+            <div className="lg:col-span-8">
+
+              <div className="h-6 w-52 bg-gray-300 rounded animate-pulse mb-8"></div>
+
+              {[...Array(10)].map((_, index) => (
+
+                <div
+
+                  key={index}
+
+                  className="h-5 bg-gray-300 rounded animate-pulse mb-5"
+
+                  style={{
+
+                    width:
+
+                      index % 3 === 0
+
+                        ? "95%"
+
+                        : index % 3 === 1
+
+                        ? "100%"
+
+                        : "85%"
+
+                  }}
+
+                />
+
+              ))}
+
+            </div>
+
+            {/* SIDEBAR */}
+
+            <div className="lg:col-span-4">
+
+              <div className="h-8 w-40 bg-gray-300 rounded animate-pulse mb-8"></div>
+
+              {
+
+                [...Array(5)].map((_, index) => (
+
+                  <div
+
+                    key={index}
+
+                    className="flex gap-4 mb-8"
+
+                  >
+
+                    <div className="w-28 h-20 bg-gray-300 rounded-xl animate-pulse"></div>
+
+                    <div className="flex-1">
+
+                      <div className="h-4 bg-gray-300 rounded animate-pulse mb-3"></div>
+
+                      <div className="h-4 w-4/5 bg-gray-300 rounded animate-pulse"></div>
+
+                    </div>
+
+                  </div>
+
+                ))
+
+              }
+
+            </div>
+
+          </div>
+
+          {/* RELATED */}
+
+          <div className="mt-24">
+
+            <div className="h-10 w-72 bg-gray-300 rounded animate-pulse mb-10"></div>
+
+            {
+
+              [...Array(4)].map((_, index) => (
+
+                <div
+
+                  key={index}
+
+                  className="grid md:grid-cols-12 gap-6 border-b py-8"
+
+                >
+
+                  <div className="md:col-span-8">
+
+                    <div className="h-4 w-24 bg-gray-300 rounded animate-pulse mb-3"></div>
+
+                    <div className="h-8 bg-gray-300 rounded animate-pulse mb-4"></div>
+
+                    <div className="h-5 bg-gray-300 rounded animate-pulse mb-2"></div>
+
+                    <div className="h-5 w-5/6 bg-gray-300 rounded animate-pulse"></div>
+
+                  </div>
+
+                  <div className="md:col-span-4">
+
+                    <div className="h-44 bg-gray-300 rounded-xl animate-pulse"></div>
+
+                  </div>
+
+                </div>
+
+              ))
+
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </>
+
+  );
+
+}
+
+
+if (type === "saved") {
+
+  return (
+
+    <>
+
+      <Navbar />
+
+      <div className="min-h-screen bg-[#f5f5f5]">
+
+        {/* HERO */}
+
+        <div className="bg-gray-900">
+
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
+
+            <div className="h-12 w-72 bg-gray-700 rounded animate-pulse mb-5"></div>
+
+            <div className="h-6 w-[500px] max-w-full bg-gray-700 rounded animate-pulse mb-8"></div>
+
+            <div className="h-12 w-48 bg-gray-700 rounded-full animate-pulse"></div>
+
+          </div>
+
+        </div>
+
+        {/* CARDS */}
+
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-12 space-y-10">
+
+          {
+
+            [...Array(4)].map((_, index) => (
+
+              <div
+
+                key={index}
+
+                className="
+
+                  bg-white
+
+                  rounded-3xl
+
+                  shadow-md
+
+                  overflow-hidden
+
+                  animate-pulse
+
+                "
+
+              >
+
+                <div className="flex flex-col lg:flex-row">
+
+                  <div className="
+
+                    w-full
+
+                    lg:w-[340px]
+
+                    h-[220px]
+
+                    sm:h-[260px]
+
+                    bg-gray-300
+
+                  " />
+
+                  <div className="flex-1 p-8">
+
+                    <div className="
+
+                      h-7
+
+                      w-32
+
+                      bg-gray-300
+
+                      rounded-full
+
+                      mb-6
+
+                    " />
+
+                    <div className="
+
+                      h-10
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-4
+
+                    " />
+
+                    <div className="
+
+                      h-10
+
+                      w-4/5
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-5
+
+                    " />
+
+                    <div className="
+
+                      h-5
+
+                      w-40
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-6
+
+                    " />
+
+                    <div className="
+
+                      h-5
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-3
+
+                    " />
+
+                    <div className="
+
+                      h-5
+
+                      w-5/6
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-3
+
+                    " />
+
+                    <div className="
+
+                      h-5
+
+                      w-3/4
+
+                      bg-gray-300
+
+                      rounded
+
+                      mb-8
+
+                    " />
+
+                    <div className="flex gap-4">
+
+                      <div className="
+
+                        h-12
+
+                        w-40
+
+                        bg-gray-300
+
+                        rounded-full
+
+                      " />
+
+                      <div className="
+
+                        h-12
+
+                        w-12
+
+                        bg-gray-300
+
+                        rounded-full
+
+                      " />
+
+                      <div className="
+
+                        h-12
+
+                        w-36
+
+                        bg-gray-300
+
+                        rounded-full
+
+                      " />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))
+
+          }
+
+        </div>
+
+      </div>
+
+    </>
+
+  );
+
+}
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md animate-pulse">
 

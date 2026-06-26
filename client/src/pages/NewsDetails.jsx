@@ -22,6 +22,7 @@ import { toast }
 
 
   import Footer from "../components/Footer";
+  import SkeletonCard from "../components/SkeletonCard";
 
 
 function NewsDetails() {
@@ -317,9 +318,11 @@ const navigate =
   };
 
   if (loading) {
-
-  return <h2>Loading...</h2>;
-
+  return (
+    <SkeletonCard
+      type="details"
+    />
+  );
 }
 
 if (!article) {

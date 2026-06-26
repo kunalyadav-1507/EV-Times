@@ -7,8 +7,10 @@ import {
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-import { fetchNewsById }
-  from "../services/newsService";
+import {
+  fetchNewsById,
+  incrementViews
+} from "../services/newsService";
 
 import { FaBookmark, FaRegBookmark, FaShareAlt } from "react-icons/fa";
 
@@ -67,6 +69,7 @@ const navigate =
         setRelatedArticles(
           response.data.relatedArticles
         );
+        await incrementViews(id);
 
         window.scrollTo({
           top: 0,

@@ -100,3 +100,14 @@ export const fetchNewsById = async (id) => {
   );
 
 };
+
+
+export const incrementViews = async (id) => {
+
+  return await axios.patch(
+
+    `${API}/external-news/views/${id}`
+
+  );
+
+};

@@ -1254,6 +1254,65 @@ const getNewsById = async (req, res) => {
 
 };
 
+const incrementViews = async (req, res) => {
+
+  try {
+    const article =
+      await ExternalNews.findByIdAndUpdate(
+
+        req.params.id,
+
+        {
+          $inc: {
+            views: 1
+          }
+        },
+
+        {
+          new: true
+        }
+
+      );
+
+
+    if (!article) {
+
+      return res.status(404).json({
+
+        success: false,
+
+        message: "Article not found"
+
+      });
+
+    }
+
+    res.status(200).json({
+
+      success: true,
+
+      views: article.views
+
+    });
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+
+      success: false,
+
+      message: error.message
+
+    });
+
+  }
+
+};
+
 
 module.exports = {
   getNewsByTopic,
@@ -1269,7 +1328,7 @@ module.exports = {
   getEditorPicks,
   getAllExternalNews, deleteExternalNews,getRawNews,submitDraft,
   getPendingExternalNews,approveExternalNews,rejectExternalNews,
-  getDraftNews,updateDraft,getPublishedCount,getSubmittedCount,getPublishedNews,
+  getDraftNews,updateDraft,getPublishedCount,getSubmittedCount,getPublishedNews,incrementViews,
   getNewsById
 
 };

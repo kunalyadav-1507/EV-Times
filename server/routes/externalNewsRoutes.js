@@ -8,7 +8,7 @@ const {
   getHomeNews,getStateNews,searchNews,getTrendingNews,markFeatured,
 markEditorPick,getFeaturedNews,getEditorPicks,getAllExternalNews,deleteExternalNews,getRawNews,submitDraft,getPendingExternalNews,
 approveExternalNews,rejectExternalNews,getDraftNews,updateDraft,
-getPublishedCount,getSubmittedCount,getPublishedNews,getNewsById
+getPublishedCount,getSubmittedCount,getPublishedNews,getNewsById,incrementViews
 } = require(
   "../controllers/externalNewsController"
 );
@@ -122,5 +122,8 @@ router.get(
   "/article/:id",
   getNewsById
 );
-
+router.patch(
+  "/views/:id",
+  incrementViews
+);
 module.exports = router;

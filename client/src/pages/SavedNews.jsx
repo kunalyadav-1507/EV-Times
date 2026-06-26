@@ -6,6 +6,7 @@ import { getSavedArticles, removeSavedArticle } from "../services/savedNewsServi
 import NewsCard from "../components/NewsCard";
 
 import toast from "react-hot-toast";
+import SkeletonCard from "../components/SkeletonCard";
 
 
 function SavedNews() {
@@ -53,12 +54,12 @@ function SavedNews() {
 
 
   if (loading) {
-
-    return <h2>
-      Loading Saved Articles...
-    </h2>;
-
-  }
+  return (
+    <SkeletonCard
+      type="saved"
+    />
+  );
+}
 
 
 const handleSave =

@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import NewsCard from "../components/NewsCard";
-import SkeletonCard from "../components/SkeletonCard";
 
-import {
-  getSavedArticles,
-  removeSavedArticle
-} from "../services/savedNewsService";
+import { getSavedArticles, removeSavedArticle } from "../services/savedNewsService";
+import NewsCard from "../components/NewsCard";
 
 import toast from "react-hot-toast";
 
+
 function SavedNews() {
 
-  const [articles, setArticles] =
-    useState([]);
+  const [articles, setArticles]
+    = useState([]);
 
-  const [loading, setLoading] =
-    useState(true);
+  const [loading, setLoading]
+    = useState(true);
+
 
   useEffect(() => {
 
@@ -53,238 +51,95 @@ function SavedNews() {
 
   }, []);
 
-  const handleSave =
-    async (article) => {
-
-      try {
-
-        await removeSavedArticle(
-
-          article._id
-
-        );
-
-        setArticles(
-
-          prev =>
-
-            prev.filter(
-
-              item =>
-
-                item._id !== article._id
-
-            )
-
-        );
-
-        toast.success(
-
-          "Article Removed"
-
-        );
-
-      }
-
-      catch (error) {
-
-        console.log(error);
-
-      }
-
-    };
 
   if (loading) {
-  return (
-    <SkeletonCard
-      type="saved"
-    />
-  );
-}
+
+    return <h2>
+      Loading Saved Articles...
+    </h2>;
+
+  }
+
+
+const handleSave =
+  async (article) => {
+
+    try {
+
+      await removeSavedArticle(
+
+        article._id
+
+      );
+
+
+      setArticles(
+
+        prev =>
+
+          prev.filter(
+
+            item =>
+
+              item._id !== article._id
+
+          )
+
+      );
+
+      toast.success("Article Removed");
+
+    }
+
+    catch (error) {
+
+      console.log(error);
+
+    }
+
+};
 
   return (
 
-    <>
+  <>
 
-      <Navbar />
+    <Navbar />
 
-      <div className="min-h-screen bg-[#f5f5f5]">
+    <div className="bg-gray-100 min-h-screen px-8 py-8">
 
-        {/* HERO */}
+      <div className="max-w-7xl mx-auto">
 
-        <div className="bg-gradient-to-r from-black to-gray-900 text-white">
 
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
+        {/* PAGE TITLE */}
 
-            <h1
-              className="
-                text-4xl
-                md:text-5xl
-                font-extrabold
-                mb-4
-              "
-            >
+        <h1 className="text-5xl font-bold text-gray-900 mb-10">
 
-              Saved Articles
+          Saved Articles
 
-            </h1>
+        </h1>
 
-            <p
-              className="
-                text-gray-300
-                text-lg
-                max-w-2xl
-              "
-            >
 
-              Keep all your favourite EV news,
-              battery technology stories and
-              industry updates in one place.
+        {/* NEWS GRID */}
 
-            </p>
-
-            <div
-              className="
-                mt-8
-                inline-flex
-                items-center
-                bg-white/10
-                backdrop-blur
-                px-6
-                py-3
-                rounded-full
-                text-lg
-                font-semibold
-              "
-            >
-
-              {articles.length}
-
-              &nbsp;
-
-              {articles.length === 1
-
-                ? "Saved Article"
-
-                : "Saved Articles"}
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* CONTENT */}
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-10
-            py-12
-          "
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {
 
-            articles.length === 0 ?
+            articles.map((article, index) => (
 
-              (
+              <NewsCard
 
-                <div
-                  className="
-                    bg-white
-                    rounded-3xl
-                    shadow-md
-                    py-24
-                    px-8
-                    text-center
-                  "
-                >
+                key={index}
 
-                  <div
-                    className="
-                      text-7xl
-                      mb-6
-                    "
-                  >
+                article={article}
 
-                    🔖
+                handleSave={handleSave}
 
-                  </div>
+                isSaved= {true}
 
-                  <h2
-                    className="
-                      text-3xl
-                      font-bold
-                      text-gray-900
-                      mb-4
-                    "
-                  >
+              />
 
-                    No Saved Articles
-
-                  </h2>
-
-                  <p
-                    className="
-                      text-gray-500
-                      max-w-lg
-                      mx-auto
-                      leading-8
-                    "
-                  >
-
-                    Start saving articles while
-                    browsing EV Times.
-                    Your bookmarked stories will
-                    appear here for quick access.
-
-                  </p>
-
-                </div>
-
-              )
-
-              :
-
-              (
-
-                <div
-                  className="
-                    flex
-                    flex-col
-                    gap-10
-                  "
-                >
-
-                  {
-
-                    articles.map(
-
-                      (article) => (
-
-                        <NewsCard
-
-                          key={article._id}
-
-                          article={article}
-
-                          handleSave={handleSave}
-
-                        />
-
-                      )
-
-                    )
-
-                  }
-
-                </div>
-
-              )
+            ))
 
           }
 
@@ -292,18 +147,13 @@ function SavedNews() {
 
       </div>
 
-    </>
+    </div>
 
-  );
+  </>
+
+);
 
 }
 
+
 export default SavedNews;
-
-
-
-
-
-
-
-

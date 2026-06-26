@@ -22,7 +22,6 @@ import { toast }
 
 
   import Footer from "../components/Footer";
-  import SkeletonCard from "../components/SkeletonCard";
 
 
 function NewsDetails() {
@@ -224,35 +223,30 @@ const navigate =
 
           await saveArticle({
 
-  articleId:
+            title:
+              article.title,
 
-    article._id,
+            description:
 
-  title:
+              article.description ||
 
-    article.title,
+              article.content ||
 
-  description:
+              article.summary,
 
-    article.description ||
+            imageUrl:
 
-    article.content ||
+              article.imageUrl ||
 
-    article.summary,
+              article.urlToImage,
 
-  imageUrl:
+            articleUrl:
 
-    article.imageUrl ||
+              article.url ||
 
-    article.urlToImage,
+              article.articleUrl
 
-  articleUrl:
-
-    article.url ||
-
-    article.articleUrl
-
-});
+          });
 
 
           setIsSaved(true);
@@ -323,11 +317,9 @@ const navigate =
   };
 
   if (loading) {
-  return (
-    <SkeletonCard
-      type="details"
-    />
-  );
+
+  return <h2>Loading...</h2>;
+
 }
 
 if (!article) {

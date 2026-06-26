@@ -1,11 +1,14 @@
+const SavedNews =
+  require("../models/SavedNews");
+
+
+// SAVE ARTICLE
 const saveArticle =
   async (req, res) => {
 
     try {
 
       const {
-
-        articleId,
 
         title,
 
@@ -17,12 +20,11 @@ const saveArticle =
 
       } = req.body;
 
+
       const savedNews =
         await SavedNews.create({
 
           user: req.user.id,
-
-          articleId,
 
           title,
 
@@ -34,9 +36,11 @@ const saveArticle =
 
         });
 
+
       res.status(201).json({
 
-        message: "Article Saved",
+        message:
+          "Article Saved",
 
         savedNews
 
@@ -54,4 +58,80 @@ const saveArticle =
 
     }
 
-  };
+};
+
+
+// GET SAVED ARTICLES
+const getSavedArticles =
+  async (req, res) => {
+
+    try {
+
+      const articles =
+        await SavedNews.find({
+
+          user: req.user.id
+
+        });
+
+
+      res.json(articles);
+
+    }
+
+    catch (error) {
+
+      res.status(500).json({
+
+        error: error.message
+
+      });
+
+    }
+
+};
+
+// DELETE SAVED ARTICLE
+const deleteSavedArticle =
+  async (req, res) => {
+
+    try {
+
+      await SavedNews.findByIdAndDelete(
+
+        req.params.id
+
+      );
+
+
+      res.json({
+
+        message:
+          "Saved Article Removed"
+
+      });
+
+    }
+
+    catch (error) {
+
+      res.status(500).json({
+
+        error: error.message
+
+      });
+
+    }
+
+};
+
+
+module.exports = {
+
+  saveArticle,
+
+  getSavedArticles,
+
+  deleteSavedArticle
+
+};

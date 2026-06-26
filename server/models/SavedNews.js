@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const savedNewsSchema =
   new mongoose.Schema(
 
@@ -7,19 +8,10 @@ const savedNewsSchema =
 
       user: {
 
-        type: mongoose.Schema.Types.ObjectId,
+        type:
+          mongoose.Schema.Types.ObjectId,
 
         ref: "User",
-
-        required: true
-
-      },
-
-      articleId: {
-
-        type: mongoose.Schema.Types.ObjectId,
-
-        ref: "ExternalNews",
 
         required: true
 
@@ -57,10 +49,14 @@ const savedNewsSchema =
 
     }
 
-  );
+);
+
 
 module.exports =
   mongoose.model(
+
     "SavedNews",
+
     savedNewsSchema
-  );
+
+);

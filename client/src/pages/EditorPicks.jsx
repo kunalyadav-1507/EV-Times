@@ -462,35 +462,40 @@ function SearchResults() {
       >
 
         <div
-          className="
-    max-w-[1600px]
+  className="
+    max-w-[1550px]
     mx-auto
-    grid
+    xl:grid
     xl:grid-cols-[260px_minmax(0,1fr)_240px]
-    gap-12
+    gap-6
     px-4
     md:px-6
     lg:px-8
   "
-        >
-          <div className="hidden xl:block">
+>
+          <div className="hidden xl:block self-start">
 
-            <div className="sticky top-28">
+            <div className="sticky top-24 h-fit">
 
               <div
                 className="
         bg-white
         rounded-xl
         shadow-md
-        overflow-hidden
         border
         border-gray-200
-    "
+        overflow-hidden
+      "
               >
 
                 <img
                   src="/ad.png"
-                  className="w-full"
+                  alt="Advertisement"
+                  className="
+          w-full
+          h-[600px]
+          object-cover
+        "
                 />
 
               </div>
@@ -499,7 +504,6 @@ function SearchResults() {
 
           </div>
           <div>
-
             <div className="text-center mb-16">
 
               <p className="
@@ -993,34 +997,41 @@ function SearchResults() {
 
           </div>
 
-          <div className="hidden xl:block">
+          <div className="hidden xl:block self-start">
 
-            <div className="sticky top-28">
+  <div className="sticky top-24 h-fit">
 
-              <div
-                className="
+    <div
+      className="
         bg-white
         rounded-xl
         shadow-md
-        overflow-hidden
         border
         border-gray-200
-    "
-              >
+        overflow-hidden
+      "
+    >
 
-                <img
-                  src="/ad2.png"
-                  className="w-full"
-                />
+      <img
+        src="/ad2.png"
+        alt="Advertisement"
+        className="
+          w-full
+          h-[600px]
+          object-cover
+        "
+      />
 
-              </div>
+    </div>
 
-            </div>
+  </div>
 
-          </div>
+</div>
+
 
 
         </div>
+
 
       </div>
 

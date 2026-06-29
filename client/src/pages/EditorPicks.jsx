@@ -32,7 +32,7 @@ import SkeletonCard from "../components/SkeletonCard";
 
 function SearchResults() {
 
-  
+
 
 
 
@@ -429,12 +429,12 @@ function SearchResults() {
 
 
   if (loading) {
-  return (
-    <SkeletonCard
-      type="editor"
-    />
-  );
-}
+    return (
+      <SkeletonCard
+        type="editor"
+      />
+    );
+  }
   const heroArticle = news[0];
   const topPicks = news.slice(1, 4);
   const trendingPicks = news.slice(0, 7);
@@ -450,153 +450,134 @@ function SearchResults() {
 
       <Navbar />
 
-      <div
-        className="
-    hidden xl:block
-    fixed
-    left-4
-    top-52
-    w-70
-    z-10
-  "
-      >
-        <div
-          className="
-      bg-white
-      border
-      rounded-xl
-      h-[530px]
-      shadow
-      flex
-      items-center
-      justify-center
-      text-gray-500
-      font-semibold
-    "
-        >
-          <img className="rounded-xl" src="ad.png" />
-        </div>
-      </div>
-      <div
-        className="
-    hidden xl:block
-    fixed
-    right-4
-    top-52
-    w-60
-    z-10
-  "
-      >
-        <div
-          className="
-      bg-white
-      border
-      rounded-xl
-      h-[697px]
-      shadow
-      flex
-      items-center
-      justify-center
-      text-gray-500
-      font-semibold
-    "
-        >
-          <img className="rounded-xl" src="ad2.png" />
-        </div>
-      </div>
+
 
 
       <div
-  className="
+        className="
     bg-gray-100
     min-h-screen
+    py-8
+  "
+      >
+
+        <div
+          className="
+    max-w-[1600px]
+    mx-auto
+    grid
+    xl:grid-cols-[260px_minmax(0,1fr)_240px]
+    gap-12
     px-4
     md:px-6
     lg:px-8
-    py-8
   "
->
+        >
+          <div className="hidden xl:block">
 
-        <div className="max-w-7xl mx-auto">
+            <div className="sticky top-28">
 
-          <div className="text-center mb-16">
+              <div
+                className="
+        bg-white
+        rounded-xl
+        shadow-md
+        overflow-hidden
+        border
+        border-gray-200
+    "
+              >
 
-            <p className="
+                <img
+                  src="/ad.png"
+                  className="w-full"
+                />
+
+              </div>
+
+            </div>
+
+          </div>
+          <div>
+
+            <div className="text-center mb-16">
+
+              <p className="
     uppercase
     tracking-[3px] md:tracking-[8px]
     text-gray-500
     text-sm
     mb-4
   ">
-              Editorial Selection
-            </p>
+                Editorial Selection
+              </p>
 
-            <h1 className="
+              <h1 className="
     text-3xl md:text-5xl lg:text-6xl
     font-bold
     text-gray-900
     mb-5
   ">
-              Editor Picks
-            </h1>
+                Editor Picks
+              </h1>
 
-          </div>
+            </div>
 
-          <div
-            className="
+            <div
+              className="
     bg-gray-50
     border-l-4
     border-black
    p-5 md:p-8
     mb-16
   "
-          >
+            >
 
-            <p className="
+              <p className="
     uppercase
     text-sm
     tracking-widest
     text-gray-500
     mb-3
   ">
-              Editor's Note
-            </p>
+                Editor's Note
+              </p>
 
-            <p className="
+              <p className="
     text-lg md:text-xl
     italic
     leading-relaxed
     text-gray-700
   ">
-              Our editors selected these stories
-              because they represent the most
-              important developments shaping
-              the future of electric mobility.
-            </p>
+                Our editors selected these stories
+                because they represent the most
+                important developments shaping
+                the future of electric mobility.
+              </p>
 
-          </div>
+            </div>
 
-          {heroArticle && (
+            {heroArticle && (
 
-            <Link
-              to={`/news/${heroArticle?._id}`}
-              
-              className="block mb-20"
-            >
+              <Link
+                to={`/news/${heroArticle?._id}`}
 
-              <div className="grid lg:grid-cols-2 gap-10 items-center">
+                className="block mb-20"
+              >
 
-                {/* Image */}
+                <div className="grid lg:grid-cols-2 gap-10 items-center">
 
-                <div>
+                  {/* Image */}
 
-                  <img
-                    src={
-                      heroArticle.imageUrl ||
-                      heroArticle.urlToImage
-                    }
-                    alt={heroArticle.title}
-                    className="
+                  <div>
+
+                    <img
+                      src={
+                        heroArticle.imageUrl ||
+                        heroArticle.urlToImage
+                      }
+                      alt={heroArticle.title}
+                      className="
   w-full
   h-[250px]
   md:h-[400px]
@@ -604,79 +585,79 @@ function SearchResults() {
   object-cover
   rounded-xl
 "
-                  />
+                    />
 
-                </div>
+                  </div>
 
-                {/* Content */}
+                  {/* Content */}
 
-                <div>
+                  <div>
 
-                  <p className="
+                    <p className="
           uppercase
           tracking-widest
           text-gray-500
           text-sm
           mb-4
         ">
-                    Editor's Choice
-                  </p>
+                      Editor's Choice
+                    </p>
 
-                  <h2 className="
+                    <h2 className="
           text-2xl md:text-4xl lg:text-5xl
           font-bold
           leading-tight
           mb-6
           hover:underline
         ">
-                    {heroArticle.title}
-                  </h2>
+                      {heroArticle.title}
+                    </h2>
 
-                  <p className="
+                    <p className="
           text-lg
           text-gray-600
           leading-relaxed
         ">
-                    {
-                      heroArticle.description ||
-                      heroArticle.content
-                    }
-                  </p>
+                      {
+                        heroArticle.description ||
+                        heroArticle.content
+                      }
+                    </p>
+
+                  </div>
 
                 </div>
 
-              </div>
+              </Link>
 
-            </Link>
+            )}
 
-          )}
+            <div className="mb-10">
 
-          <div className="mb-10">
+              <div className="flex items-center my-16">
 
-            <div className="flex items-center my-16">
+                <div className="flex-1 border-t border-gray-300"></div>
 
-              <div className="flex-1 border-t border-gray-300"></div>
-
-              <span
-                className="
+                <span
+                  className="
       px-4
       text-black-500
       uppercase
       text-2xl
       tracking-widest
     "
-              >
-                Top Picks
-              </span>
+                >
+                  Top Picks
+                </span>
 
-              <div className="flex-1 border-t border-gray-300"></div>
+                <div className="flex-1 border-t border-gray-300"></div>
+
+              </div>
+
+
 
             </div>
-
-
-
-          </div>
-          <div className="
+            <div className="
   grid
   md:grid-cols-2
   lg:grid-cols-3
@@ -684,99 +665,99 @@ function SearchResults() {
   mb-20
 ">
 
-            {topPicks.map((article, index) => (
+              {topPicks.map((article, index) => (
 
-              <Link
-                key={index}
-                to={`/news/${article._id}`}
-                
-                className="
+                <Link
+                  key={index}
+                  to={`/news/${article._id}`}
+
+                  className="
         block
         group
         hover:underline
       "
-              >
+                >
 
-                <img
-                  src={
-                    article.imageUrl ||
-                    article.urlToImage
-                  }
-                  alt={article.title}
-                  className="
+                  <img
+                    src={
+                      article.imageUrl ||
+                      article.urlToImage
+                    }
+                    alt={article.title}
+                    className="
           w-full
          h-52 md:h-56
           object-cover
           rounded-xl
           mb-4
         "
-                />
+                  />
 
-                <p className="
+                  <p className="
         uppercase
         text-xs
         tracking-widest
         text-gray-500
         mb-2
       ">
-                  Editor's Pick
-                </p>
+                    Editor's Pick
+                  </p>
 
-                <h3 className="
+                  <h3 className="
         text-xl md:text-2xl
         font-bold
         leading-snug
         group-hover:underline
       ">
-                  {article.title}
-                </h3>
+                    {article.title}
+                  </h3>
 
-              </Link>
+                </Link>
 
-            ))}
+              ))}
 
-          </div>
+            </div>
 
 
 
-          <div className="flex items-center my-16">
+            <div className="flex items-center my-16">
 
-            <div className="flex-1 border-t border-gray-300"></div>
+              <div className="flex-1 border-t border-gray-300"></div>
 
-            <span className="px-4 text-black-500 uppercase text-2xl tracking-widest">
-              Trending Picks
-            </span>
+              <span className="px-4 text-black-500 uppercase text-2xl tracking-widest">
+                Trending Picks
+              </span>
 
-            <div className="flex-1 border-t border-gray-300"></div>
+              <div className="flex-1 border-t border-gray-300"></div>
 
-          </div>
-          <div className="
+            </div>
+            <div className="
   flex
   gap-6
   overflow-x-auto
   pb-4
   hide-scrollbar
 ">
-            {trendingPicks.map((article, index) => (
+              {trendingPicks.map((article, index) => (
 
-              <Link
-                key={index}
-                to={`/news/${article._id}`}
-                
-                className="
+                <Link
+                  key={index}
+                  to={`/news/${article._id}`}
+
+                  className="
       min-w-[100px]
       flex-shrink-0
       hover:underline
     "
-              >
+                >
 
-                <img
-                  src={
-                    article.imageUrl ||
-                    article.urlToImage
-                  }
-                  alt={article.title}
-                  className="
+                  <img
+                    src={
+                      article.imageUrl ||
+                      article.urlToImage
+                    }
+                    alt={article.title}
+                    className="
   w-52
   h-52
   md:w-70
@@ -784,9 +765,9 @@ function SearchResults() {
   object-cover
   rounded-xl
 "
-                />
+                  />
 
-                <h3 className="
+                  <h3 className="
   mt-3
   w-52
   md:w-70
@@ -794,26 +775,26 @@ function SearchResults() {
   text-base
   md:text-lg
 ">
-                  {article.title}
-                </h3>
+                    {article.title}
+                  </h3>
 
-              </Link>
+                </Link>
 
-            ))}
-          </div>
+              ))}
+            </div>
 
 
 
-          <div
-            ref={latestNewsSectionRef}
-            className="space-y-10">
+            <div
+              ref={latestNewsSectionRef}
+              className="space-y-10">
 
-            <div className="flex items-center my-12">
+              <div className="flex items-center my-12">
 
-              <div className="flex-1 border-t border-gray-300"></div>
+                <div className="flex-1 border-t border-gray-300"></div>
 
-              <span
-                className="
+                <span
+                  className="
     ref={latestNewsRef}
       px-4
       text-black-500
@@ -821,22 +802,22 @@ function SearchResults() {
       text-2xl
       tracking-widest
     "
-              >
-                Editor's Choice
-              </span>
+                >
+                  Editor's Choice
+                </span>
 
-              <div className="flex-1 border-t border-gray-300"></div>
+                <div className="flex-1 border-t border-gray-300"></div>
 
-            </div>
+              </div>
 
 
-            {paginatedNews.map((article, index) => (
+              {paginatedNews.map((article, index) => (
 
-              <Link
-                key={index}
-                to={`/news/${article._id}`}
-                
-                className="
+                <Link
+                  key={index}
+                  to={`/news/${article._id}`}
+
+                  className="
                 block
         border-b
         border-gray-300
@@ -845,83 +826,83 @@ function SearchResults() {
         cursor-pointer
         
       "
-              >
+                >
 
-                <div className="
+                  <div className="
         grid
         md:grid-cols-3
         gap-8
         items-center
       ">
 
-                  {/* LEFT SIDE */}
+                    {/* LEFT SIDE */}
 
-                  <div className="md:col-span-2">
+                    <div className="md:col-span-2">
 
-                    <p className="
+                      <p className="
             text-sm
             text-gray-500
             mb-3
           ">
-                      {article.category} • {" "}
-                      {new Date(
-                        article.publishedAt
-                      ).toLocaleDateString()}
-                    </p>
+                        {article.category} • {" "}
+                        {new Date(
+                          article.publishedAt
+                        ).toLocaleDateString()}
+                      </p>
 
-                    <h3 className="
+                      <h3 className="
            text-xl md:text-3xl
             font-bold
             mb-4
             leading-tight
             hover:underline
           ">
-                      {article.title}
-                    </h3>
+                        {article.title}
+                      </h3>
 
-                    <p className="
+                      <p className="
             text-gray-600
             text-lg
             leading-relaxed
           ">
-                      {
-                        article.description ||
-                        article.content
-                      }
-                    </p>
+                        {
+                          article.description ||
+                          article.content
+                        }
+                      </p>
 
-                  </div>
+                    </div>
 
-                  {/* RIGHT SIDE */}
+                    {/* RIGHT SIDE */}
 
-                  <div>
+                    <div>
 
-                    <img
-                      src={
-                        article.imageUrl ||
-                        article.urlToImage
-                      }
-                      alt={article.title}
-                      className="
+                      <img
+                        src={
+                          article.imageUrl ||
+                          article.urlToImage
+                        }
+                        alt={article.title}
+                        className="
               w-full
               h-48 md:h-56
               object-cover
               rounded-lg
             "
-                    />
+                      />
+
+                    </div>
 
                   </div>
 
-                </div>
+                </Link>
 
-              </Link>
+              ))}
 
-            ))}
+            </div>
 
-          </div>
-
-          <div
-            className="
+            <div
+              className="
     flex
     justify-center
     items-center
@@ -929,84 +910,112 @@ function SearchResults() {
     mt-16
     mb-12
   "
-          >
+            >
 
-            {/* PREV */}
+              {/* PREV */}
 
-            <button
-              disabled={currentPage === 1}
-              onClick={() =>
-                setCurrentPage(currentPage - 1)
-              }
-              className="
+              <button
+                disabled={currentPage === 1}
+                onClick={() =>
+                  setCurrentPage(currentPage - 1)
+                }
+                className="
       px-2 md:px-4
       py-2
       text-gray-500
       disabled:text-gray-300
     "
-            >
-              Prev
-            </button>
+              >
+                Prev
+              </button>
 
-            {/* PAGE NUMBERS */}
+              {/* PAGE NUMBERS */}
 
-            {getVisiblePages().map((page, index) => (
+              {getVisiblePages().map((page, index) => (
 
-              page === "..." ? (
+                page === "..." ? (
 
-                <span
-                  key={index}
-                  className="
+                  <span
+                    key={index}
+                    className="
         px-2
         text-gray-500
       "
-                >
-                  ...
-                </span>
+                  >
+                    ...
+                  </span>
 
-              ) : (
+                ) : (
 
-                <button
-                  key={index}
-                  onClick={() =>
-                    setCurrentPage(page)
-                  }
-                  className={`
+                  <button
+                    key={index}
+                    onClick={() =>
+                      setCurrentPage(page)
+                    }
+                    className={`
         w-10
         h-10
         rounded
 
         ${currentPage === page
-                      ? "bg-cyan-700 text-white"
-                      : "hover:bg-gray-100"
-                    }
+                        ? "bg-cyan-700 text-white"
+                        : "hover:bg-gray-100"
+                      }
       `}
-                >
-                  {page}
-                </button>
+                  >
+                    {page}
+                  </button>
 
-              )
+                )
 
-            ))}
+              ))}
 
-            {/* NEXT */}
+              {/* NEXT */}
 
-            <button
-              disabled={
-                currentPage === totalPages
-              }
-              onClick={() =>
-                setCurrentPage(currentPage + 1)
-              }
-              className="
+              <button
+                disabled={
+                  currentPage === totalPages
+                }
+                onClick={() =>
+                  setCurrentPage(currentPage + 1)
+                }
+                className="
       px-4
       py-2
       text-red-700
       disabled:text-gray-300
     "
-            >
-              Next
-            </button>
+              >
+                Next
+              </button>
+
+            </div>
+
+          </div>
+
+          <div className="hidden xl:block">
+
+            <div className="sticky top-28">
+
+              <div
+                className="
+        bg-white
+        rounded-xl
+        shadow-md
+        overflow-hidden
+        border
+        border-gray-200
+    "
+              >
+
+                <img
+                  src="/ad2.png"
+                  className="w-full"
+                />
+
+              </div>
+
+            </div>
 
           </div>
 

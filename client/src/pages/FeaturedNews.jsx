@@ -34,7 +34,7 @@ import SkeletonCard from "../components/SkeletonCard";
 
 function SearchResults() {
 
-  
+
 
 
 
@@ -431,12 +431,12 @@ function SearchResults() {
 
 
   if (loading) {
-  return (
-    <SkeletonCard
-      type="featured"
-    />
-  );
-}
+    return (
+      <SkeletonCard
+        type="featured"
+      />
+    );
+  }
 
   const heroArticle = news[0];
 
@@ -454,111 +454,92 @@ function SearchResults() {
 
       <Navbar />
 
-      <div
-        className="
-    hidden xl:block
-    fixed
-    left-4
-    top-52
-    w-70
-    z-10
-  "
-      >
-        <div
-          className="
-      bg-white
-      border
-      rounded-xl
-      h-[530px]
-      shadow
-      flex
-      items-center
-      justify-center
-      text-gray-500
-      font-semibold
-    "
-        >
-          <img className="rounded-xl" src="ad.png" />
-        </div>
-      </div>
-      <div
-        className="
-    hidden xl:block
-    fixed
-    right-4
-    top-52
-    w-60
-    z-10
-  "
-      >
-        <div
-          className="
-      bg-white
-      border
-      rounded-xl
-      h-[697px]
-      shadow
-      flex
-      items-center
-      justify-center
-      text-gray-500
-      font-semibold
-    "
-        >
-          <img className="rounded-xl" src="ad2.png" />
-        </div>
-      </div>
+
 
 
       <div
-  className="
+        className="
     bg-gray-100
     min-h-screen
+    py-8
+  "
+      >
+
+
+        <div
+          className="
+    max-w-[1600px]
+    mx-auto
+    grid
+    xl:grid-cols-[260px_minmax(0,1fr)_240px]
+    gap-12
     px-4
     md:px-6
     lg:px-8
-    py-8
   "
->
+        >
+          <div className="hidden xl:block">
 
+            <div className="sticky top-28">
 
-        <div className="max-w-7xl mx-auto">
+              <div
+                className="
+        bg-white
+        rounded-xl
+        shadow-md
+        overflow-hidden
+        border
+        border-gray-200
+    "
+              >
 
-          <div className="text-center mb-16">
+                <img
+                  src="/ad.png"
+                  className="w-full"
+                />
 
-            <p className="uppercase tracking-[3px] md:tracking-[8px] text-gray-500 text-sm mb-4">
-              Editorial Selection
-            </p>
+              </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5">
-              Featured News
-            </h1>
-
-            <p className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
-              Discover the most important EV, battery technology,
-              charging infrastructure and mobility stories
-              carefully selected by our editorial team.
-            </p>
+            </div>
 
           </div>
+          <div>
 
-          <div className="grid lg:grid-cols-3 gap-6 mb-16">
+            <div className="text-center mb-16">
 
-            {/* Hero Article */}
+              <p className="uppercase tracking-[3px] md:tracking-[8px] text-gray-500 text-sm mb-4">
+                Editorial Selection
+              </p>
 
-            <div className="lg:col-span-2">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5">
+                Featured News
+              </h1>
 
-              {heroArticle && (
+              <p className="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
+                Discover the most important EV, battery technology,
+                charging infrastructure and mobility stories
+                carefully selected by our editorial team.
+              </p>
 
-                <div className="group cursor-pointer">
+            </div>
 
-                  <img
-                    src={
-                      heroArticle.imageUrl ||
-                      heroArticle.urlToImage
-                    }
-                    alt={heroArticle.title}
-                    className="
+            <div className="grid lg:grid-cols-3 gap-6 mb-16">
+
+              {/* Hero Article */}
+
+              <div className="lg:col-span-2">
+
+                {heroArticle && (
+
+                  <div className="group cursor-pointer">
+
+                    <img
+                      src={
+                        heroArticle.imageUrl ||
+                        heroArticle.urlToImage
+                      }
+                      alt={heroArticle.title}
+                      className="
   w-full
   h-[250px]
   md:h-[400px]
@@ -566,13 +547,13 @@ function SearchResults() {
   object-cover
   rounded-xl
 "
-                  />
+                    />
 
-                  <Link
-                    to={`/news/${heroArticle?._id}`}
-                     className="mt-5">
+                    <Link
+                      to={`/news/${heroArticle?._id}`}
+                      className="mt-5">
 
-                    <h2 className="
+                      <h2 className="
             text-2xl md:text-3xl lg:text-4xl
             font-bold
             font-serif
@@ -580,63 +561,63 @@ function SearchResults() {
             group-hover:text-cyan-600
             transition
           ">
-                      {heroArticle.title}
-                    </h2>
+                        {heroArticle.title}
+                      </h2>
 
-                    <p className="
+                      <p className="
             text-gray-600
             text-lg
             mt-4
           ">
-                      {
-                        heroArticle.description ||
-                        heroArticle.content
-                      }
-                    </p>
+                        {
+                          heroArticle.description ||
+                          heroArticle.content
+                        }
+                      </p>
 
-                  </Link>
+                    </Link>
 
-                </div>
+                  </div>
 
-              )}
+                )}
 
-            </div>
+              </div>
 
-            {/* Side Articles */}
+              {/* Side Articles */}
 
-            <div className="space-y-6">
+              <div className="space-y-6">
 
-              {sideArticles.map((article, index) => (
+                {sideArticles.map((article, index) => (
 
-                <Link
-                  key={index}
-                  to={`/news/${article._id}`}
-                  
-                  className="
+                  <Link
+                    key={index}
+                    to={`/news/${article._id}`}
+
+                    className="
           group
           cursor-pointer
           
           
         "
-                >
+                  >
 
-                  <img
-                    src={
-                      article.imageUrl ||
-                      article.urlToImage
-                    }
-                    alt={article.title}
-                    className="
+                    <img
+                      src={
+                        article.imageUrl ||
+                        article.urlToImage
+                      }
+                      alt={article.title}
+                      className="
             w-full
             h-40 md:h-44
             object-cover
             rounded-xl
           "
-                  />
+                    />
 
 
-                  <h3
-                    className="
+                    <h3
+                      className="
             mt-3
             text-lg md:text-xl
             font-bold
@@ -645,32 +626,32 @@ function SearchResults() {
             group-hover:text-cyan-600
             transition
           "
-                  >
-                    {article.title}
-                  </h3>
-                  <br />
+                    >
+                      {article.title}
+                    </h3>
+                    <br />
 
-                </Link>
+                  </Link>
 
-              ))}
+                ))}
+
+              </div>
 
             </div>
+            <div className="my-16 border-t border-gray-300"></div>
 
-          </div>
-          <div className="my-16 border-t border-gray-300"></div>
-
-          <div className="mt-20">
+            <div className="mt-20">
 
 
-            <h2 className="
+              <h2 className="
     text-3xl
     font-bold
     mb-8
   ">
-              More Featured Stories
-            </h2>
+                More Featured Stories
+              </h2>
 
-            <div className="
+              <div className="
     grid
     grid-cols-1
     md:grid-cols-2
@@ -678,82 +659,82 @@ function SearchResults() {
     gap-8
   ">
 
-              {remainingArticles.map(
-                (article, index) => (
+                {remainingArticles.map(
+                  (article, index) => (
 
-                  <Link
-                    key={index}
-                    to={`/news/${article._id}`}
-                    
-                    className=" pb-6"
-                  >
+                    <Link
+                      key={index}
+                      to={`/news/${article._id}`}
 
-                    <img
-                      src={
-                        article.imageUrl ||
-                        article.urlToImage
-                      }
-                      alt={article.title}
-                      className="
+                      className=" pb-6"
+                    >
+
+                      <img
+                        src={
+                          article.imageUrl ||
+                          article.urlToImage
+                        }
+                        alt={article.title}
+                        className="
               w-full
              h-52 md:h-48
               object-cover
               mb-4
             "
-                    />
+                      />
 
-                    <h3 className="
+                      <h3 className="
             text-xl
             font-bold
             font-serif
             leading-snug
             mb-3
           ">
-                      {article.title}
-                    </h3>
+                        {article.title}
+                      </h3>
 
-                    <p className="
+                      <p className="
             text-gray-500
             text-sm
           ">
-                      {
-                        new Date(
-                          article.publishedAt
-                        ).toLocaleDateString()
-                      }
-                    </p>
+                        {
+                          new Date(
+                            article.publishedAt
+                          ).toLocaleDateString()
+                        }
+                      </p>
 
-                  </Link>
+                    </Link>
 
-                )
-              )}
+                  )
+                )}
+
+              </div>
 
             </div>
-
-          </div>
-          <div className="my-16 border-t border-gray-300"></div>
+            <div className="my-16 border-t border-gray-300"></div>
 
 
 
 
-          <div
-            ref={latestNewsSectionRef}
-            className="space-y-10">
+            <div
+              ref={latestNewsSectionRef}
+              className="space-y-10">
 
-            <h2 className="
+              <h2 className="
             ref={latestNewsRef}
   text-2xl md:text-4xl font-bold mb-10
 ">
-              Featured Stories
-            </h2>
+                Featured Stories
+              </h2>
 
-            {paginatedNews.map((article, index) => (
+              {paginatedNews.map((article, index) => (
 
-              <Link
-                key={index}
-                to={`/news/${article._id}`}
-                
-                className="
+                <Link
+                  key={index}
+                  to={`/news/${article._id}`}
+
+                  className="
                 block
         border-b
         border-gray-300
@@ -761,82 +742,82 @@ function SearchResults() {
         mb-10
         cursor-pointer
       "
-              >
+                >
 
-                <div className="
+                  <div className="
         grid
         md:grid-cols-3
         gap-8
         items-center
       ">
 
-                  {/* LEFT SIDE */}
+                    {/* LEFT SIDE */}
 
-                  <div className="md:col-span-2">
+                    <div className="md:col-span-2">
 
-                    <p className="
+                      <p className="
             text-sm
             text-gray-500
             mb-3
           ">
-                      {article.category} • {" "}
-                      {new Date(
-                        article.publishedAt
-                      ).toLocaleDateString()}
-                    </p>
+                        {article.category} • {" "}
+                        {new Date(
+                          article.publishedAt
+                        ).toLocaleDateString()}
+                      </p>
 
-                    <h3 className="
+                      <h3 className="
             text-xl md:text-3xl
             font-bold
             mb-4
             leading-tight
           ">
-                      {article.title}
-                    </h3>
+                        {article.title}
+                      </h3>
 
-                    <p className="
+                      <p className="
             text-gray-600
             text-lg
             leading-relaxed
           ">
-                      {
-                        article.description ||
-                        article.content
-                      }
-                    </p>
+                        {
+                          article.description ||
+                          article.content
+                        }
+                      </p>
 
-                  </div>
+                    </div>
 
-                  {/* RIGHT SIDE */}
+                    {/* RIGHT SIDE */}
 
-                  <div>
+                    <div>
 
-                    <img
-                      src={
-                        article.imageUrl ||
-                        article.urlToImage
-                      }
-                      alt={article.title}
-                      className="
+                      <img
+                        src={
+                          article.imageUrl ||
+                          article.urlToImage
+                        }
+                        alt={article.title}
+                        className="
               w-full
               h-48 md:h-56
               object-cover
               rounded-lg
             "
-                    />
+                      />
+
+                    </div>
 
                   </div>
 
-                </div>
+                </Link>
 
-              </Link>
+              ))}
 
-            ))}
+            </div>
 
-          </div>
-
-          <div
-            className="
+            <div
+              className="
     flex
     justify-center
     items-center
@@ -844,83 +825,110 @@ function SearchResults() {
     mt-16
     mb-12
   "
-          >
+            >
 
-            {/* PREV */}
+              {/* PREV */}
 
-            <button
-              disabled={currentPage === 1}
-              onClick={() =>
-                setCurrentPage(currentPage - 1)
-              }
-              className="
+              <button
+                disabled={currentPage === 1}
+                onClick={() =>
+                  setCurrentPage(currentPage - 1)
+                }
+                className="
      px-2 md:px-4 py-2
       text-gray-500
       disabled:text-gray-300
     "
-            >
-              Prev
-            </button>
+              >
+                Prev
+              </button>
 
-            {/* PAGE NUMBERS */}
+              {/* PAGE NUMBERS */}
 
-            {getVisiblePages().map((page, index) => (
+              {getVisiblePages().map((page, index) => (
 
-              page === "..." ? (
+                page === "..." ? (
 
-                <span
-                  key={index}
-                  className="
+                  <span
+                    key={index}
+                    className="
         px-2
         text-gray-500
       "
-                >
-                  ...
-                </span>
+                  >
+                    ...
+                  </span>
 
-              ) : (
+                ) : (
 
-                <button
-                  key={index}
-                  onClick={() =>
-                    setCurrentPage(page)
-                  }
-                  className={`
+                  <button
+                    key={index}
+                    onClick={() =>
+                      setCurrentPage(page)
+                    }
+                    className={`
         w-10
         h-10
         rounded
 
         ${currentPage === page
-                      ? "bg-cyan-700 text-white"
-                      : "hover:bg-gray-100"
-                    }
+                        ? "bg-cyan-700 text-white"
+                        : "hover:bg-gray-100"
+                      }
       `}
-                >
-                  {page}
-                </button>
+                  >
+                    {page}
+                  </button>
 
-              )
+                )
 
-            ))}
+              ))}
 
-            {/* NEXT */}
+              {/* NEXT */}
 
-            <button
-              disabled={
-                currentPage === totalPages
-              }
-              onClick={() =>
-                setCurrentPage(currentPage + 1)
-              }
-              className="
+              <button
+                disabled={
+                  currentPage === totalPages
+                }
+                onClick={() =>
+                  setCurrentPage(currentPage + 1)
+                }
+                className="
       px-4
       py-2
       text-red-700
       disabled:text-gray-300
     "
-            >
-              Next
-            </button>
+              >
+                Next
+              </button>
+
+            </div>
+          </div>
+
+          <div className="hidden xl:block">
+
+            <div className="sticky top-28">
+
+              <div
+    className="
+        bg-white
+        rounded-xl
+        shadow-md
+        overflow-hidden
+        border
+        border-gray-200
+    "
+>
+
+    <img
+        src="/ad2.png"
+        className="w-full"
+    />
+
+</div>
+
+            </div>
 
           </div>
 

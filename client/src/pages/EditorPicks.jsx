@@ -462,40 +462,35 @@ function SearchResults() {
       >
 
         <div
-  className="
-    max-w-[1550px]
+          className="
+    max-w-[1600px]
     mx-auto
     xl:grid
     xl:grid-cols-[260px_minmax(0,1fr)_240px]
-    gap-6
+    gap-12
     px-4
     md:px-6
     lg:px-8
   "
->
-          <div className="hidden xl:block self-start">
+        >
+          <div className="hidden xl:block">
 
-            <div className="sticky top-24 h-fit">
+            <div className="sticky top-28">
 
               <div
                 className="
         bg-white
         rounded-xl
         shadow-md
+        overflow-hidden
         border
         border-gray-200
-        overflow-hidden
-      "
+    "
               >
 
                 <img
                   src="/ad.png"
-                  alt="Advertisement"
-                  className="
-          w-full
-          h-[600px]
-          object-cover
-        "
+                  className="w-full"
                 />
 
               </div>
@@ -997,36 +992,31 @@ function SearchResults() {
 
           </div>
 
-          <div className="hidden xl:block self-start">
+          <div className="hidden xl:block">
 
-  <div className="sticky top-24 h-fit">
+            <div className="sticky top-28">
 
-    <div
-      className="
+              <div
+                className="
         bg-white
         rounded-xl
         shadow-md
+        overflow-hidden
         border
         border-gray-200
-        overflow-hidden
-      "
-    >
+    "
+              >
 
-      <img
-        src="/ad2.png"
-        alt="Advertisement"
-        className="
-          w-full
-          h-[600px]
-          object-cover
-        "
-      />
+                <img
+                  src="/ad2.png"
+                  className="w-full"
+                />
 
-    </div>
+              </div>
 
-  </div>
+            </div>
 
-</div>
+          </div>
 
 
 

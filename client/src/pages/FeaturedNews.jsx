@@ -911,7 +911,7 @@ function SearchResults() {
             <div className="sticky top-28">
 
               <div
-    className="
+                className="
         bg-white
         rounded-xl
         shadow-md
@@ -919,14 +919,14 @@ function SearchResults() {
         border
         border-gray-200
     "
->
+              >
 
-    <img
-        src="/ad2.png"
-        className="w-full"
-    />
+                <img
+                  src="/ad2.png"
+                  className="w-full"
+                />
 
-</div>
+              </div>
 
             </div>
 

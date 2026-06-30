@@ -2580,6 +2580,8 @@ import {
   FaClock,
 } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
 function AdminDashboard() {
 
   const [news, setNews] = useState([]);
@@ -2864,10 +2866,9 @@ function AdminDashboard() {
 
       try {
 
-        const response =
-          await fetch(
-            "http://localhost:5000/api/external-news/pending"
-          );
+        const response = await fetch(
+  `${API}/external-news/pending`
+);
 
         const data =
           await response.json();
@@ -2892,7 +2893,7 @@ function AdminDashboard() {
         const response =
           await fetch(
 
-            `http://localhost:5000/api/external-news/approve/${id}`,
+            `${API}/external-news/approve/${id}`,
 
             {
               method: "POST"
@@ -2937,7 +2938,7 @@ function AdminDashboard() {
         const response =
           await fetch(
 
-            `http://localhost:5000/api/external-news/reject/${id}`,
+            `${API}/external-news/reject/${id}`,
 
             {
               method: "POST"

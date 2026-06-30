@@ -6,6 +6,9 @@ import { createNews } from "../services/editorService";
 
 import { FaFilter } from "react-icons/fa";
 
+const API = import.meta.env.VITE_API_URL;
+
+
 function EditorDashboard() {
 
   const [formData, setFormData] = useState({
@@ -80,7 +83,7 @@ function EditorDashboard() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/generate",
+         `${API}/ai/generate`,
         {
           method: "POST",
           headers: {
@@ -184,7 +187,7 @@ function EditorDashboard() {
 
       const response =
         await fetch(
-          "http://localhost:5000/api/external-news/raw"
+           `${API}/external-news/raw`
         );
 
       const data =
@@ -207,7 +210,7 @@ function EditorDashboard() {
 
       const response =
         await fetch(
-          "http://localhost:5000/api/external-news/drafts"
+           `${API}/external-news/drafts`
         );
 
       const data =
@@ -230,7 +233,7 @@ function EditorDashboard() {
       try {
 
         const response = await fetch(
-          "http://localhost:5000/api/external-news/published-count"
+           `${API}/external-news/published-count`
         );
 
         const data =
@@ -256,7 +259,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/external-news/submitted-count"
+             `${API}/external-news/submitted-count`
           );
 
         const data =
@@ -283,7 +286,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/external-news/pending"
+             `${API}/external-news/pending`
           );
 
         const data =
@@ -308,7 +311,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/external-news/published"
+             `${API}/external-news/published`
           );
 
         const data =
@@ -348,7 +351,7 @@ function EditorDashboard() {
 
       const response =
         await fetch(
-          `http://localhost:5000/api/ai/generate-draft/${id}`,
+           `${API}/ai/generate-draft/${id}`,
           {
             method: "POST"
           }
@@ -390,7 +393,7 @@ function EditorDashboard() {
         const response =
           await fetch(
 
-            `http://localhost:5000/api/external-news/submit/${id}`,
+             `${API}/external-news/submit/${id}`,
 
             {
               method: "POST"
@@ -427,7 +430,7 @@ function EditorDashboard() {
 
       const response = await fetch(
 
-        `http://localhost:5000/api/external-news/draft/${editingDraft._id}`,
+         `${API}/external-news/draft/${editingDraft._id}`,
 
         {
           method: "PUT",

@@ -65,6 +65,8 @@ function EditorDashboard() {
   setShowFilter] =
   useState(false);
 
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+
 
   const handleGenerateAI = async (fromDashboard = false) => {
 
@@ -491,6 +493,8 @@ function EditorDashboard() {
       <div className="flex bg-gray-100 min-h-screen">
         <div
           className="
+           hidden
+    lg:flex
     w-64
     bg-slate-950
     text-white
@@ -879,7 +883,17 @@ function EditorDashboard() {
 
         </div>
 
-        <div className="flex-1 p-8">
+        <div
+  className="
+    flex-1
+    p-4
+    md:p-6
+    lg:p-8
+    pb-24
+    md:pb-28
+    lg:pb-8
+  "
+>
           <div
             style={{
               marginBottom: "35px"
@@ -901,32 +915,42 @@ function EditorDashboard() {
             </div>
 
             <div
-              className="
+  className="
     grid
-    grid-cols-1
-    md:grid-cols-2
+    grid-cols-2
+    md:grid-cols-4
     xl:grid-cols-5
-    gap-6
+    gap-4
+    lg:gap-6
     mb-8
   "
-            >
+>
 
               {/* Raw */}
 
-              <div className="bg-white rounded-3xl p-6 shadow-sm border  border-gray-200 ">
+              <div className="bg-white rounded-3xl p-4
+md:p-6 shadow-sm border  border-gray-200 ">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-3xl bg-blue-100 flex items-center justify-center text-2xl">
+                  <div className="w-12
+h-12
+md:w-14
+md:h-14
+text-xl
+md:text-2xl rounded-3xl bg-blue-100 flex items-center justify-center ">
                     📰
                   </div>
 
                   <div>
-                    <h3 className="text-3xl font-bold">
+                    <h3 className="text-2xl
+md:text-3xl font-bold">
                       {rawNews.length}
                     </h3>
 
-                    <p className="text-gray-500">
+                    <p className="text-xs
+md:text-sm
+text-gray-500">
                       Raw News
                     </p>
                   </div>
@@ -937,21 +961,30 @@ function EditorDashboard() {
 
               {/* Draft */}
 
-              <div className="bg-white rounded-3xl p-6 shadow-sm border  border-gray-200">
+              <div className="bg-white rounded-3xl p-4
+md:p-6 shadow-sm border  border-gray-200">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-3xl bg-yellow-100 flex items-center justify-center text-2xl">
+                  <div className="w-12
+h-12
+md:w-14
+md:h-14
+text-xl
+md:text-2xl rounded-3xl bg-yellow-100 flex items-center justify-center ">
                     📄
                   </div>
 
                   <div>
 
-                    <h3 className="text-3xl font-bold">
+                    <h3 className="text-2xl
+md:text-3xl font-bold">
                       {draftNews.length}
                     </h3>
 
-                    <p className="text-gray-500">
+                    <p className="text-xs
+md:text-sm
+text-gray-500">
                       Draft News
                     </p>
 
@@ -963,21 +996,30 @@ function EditorDashboard() {
 
               {/* Submitted */}
 
-              <div className="bg-white rounded-3xl p-6 shadow-sm border  border-gray-200">
+              <div className="bg-white rounded-3xl p-4
+md:p-6 shadow-sm border  border-gray-200">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-3xl bg-purple-100 flex items-center justify-center text-2xl">
+                  <div className="w-12
+h-12
+md:w-14
+md:h-14
+text-xl
+md:text-2xl rounded-3xl bg-purple-100 flex items-center justify-center ">
                     📤
                   </div>
 
                   <div>
 
-                    <h3 className="text-3xl font-bold">
+                    <h3 className="text-2xl
+md:text-3xl font-bold">
                       {submittedCount}
                     </h3>
 
-                    <p className="text-gray-500">
+                    <p className="text-xs
+md:text-sm
+text-gray-500">
                       Submitted
                     </p>
 
@@ -989,21 +1031,30 @@ function EditorDashboard() {
 
               {/* Published */}
 
-              <div className="bg-white rounded-3xl p-6 shadow-sm border  border-gray-200">
+              <div className="bg-white rounded-3xl p-4
+md:p-6 shadow-sm border  border-gray-200">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-3xl bg-green-100 flex items-center justify-center text-2xl">
+                  <div className="w-12
+h-12
+md:w-14
+md:h-14
+text-xl
+md:text-2xl rounded-3xl bg-green-100 flex items-center justify-center ">
                     ✅
                   </div>
 
                   <div>
 
-                    <h3 className="text-3xl font-bold">
+                    <h3 className="text-2xl
+md:text-3xl font-bold">
                       {publishedCount}
                     </h3>
 
-                    <p className="text-gray-500">
+                    <p className="text-xs
+md:text-sm
+text-gray-500">
                       Published
                     </p>
 
@@ -1015,11 +1066,17 @@ function EditorDashboard() {
 
               {/* Status */}
 
-              <div className="bg-white rounded-3xl p-6 shadow-sm border  border-gray-200">
+              <div className=" hidden xl:block bg-white rounded-3xl p-4
+md:p-6 shadow-sm border  border-gray-200">
 
                 <div className="flex items-center gap-4">
 
-                  <div className="w-14 h-14 rounded-3xl bg-emerald-100 flex items-center justify-center text-2xl">
+                  <div className="w-12
+h-12
+md:w-14
+md:h-14
+text-xl
+md:text-2xl rounded-3xl bg-emerald-100 flex items-center justify-center ">
                     🟢
                   </div>
 
@@ -1994,16 +2051,16 @@ function EditorDashboard() {
 
               <div
                 className="
-        grid
-        grid-cols-1
-        xl:grid-cols-3
-        gap-6
-      "
+grid
+grid-cols-1
+lg:grid-cols-3
+gap-6
+"
               >
 
                 {/* Create News Form */}
 
-                <div className="xl:col-span-2">
+                <div className="lg:col-span-2">
 
                   <form
                     onSubmit={handleSubmit}
@@ -2011,13 +2068,16 @@ function EditorDashboard() {
             bg-white
             rounded-3xl
             shadow-md
-            p-8
+            p-4
+md:p-6
+lg:p-8
           "
                   >
 
                     <h2
                       className="
-              text-2xl
+              text-xl
+md:text-2xl
               font-bold
               mb-6
             "
@@ -2033,7 +2093,9 @@ function EditorDashboard() {
                       onChange={handleChange}
                       className="
               w-full
-              p-4
+              px-4
+py-3
+md:py-4
               border
               border-gray-200
               rounded-xl
@@ -2052,7 +2114,11 @@ function EditorDashboard() {
                       onChange={handleChange}
                       className="
               w-full
-              p-4
+min-h-[220px]
+lg:min-h-[350px]
+              px-4
+py-3
+md:py-4
               border
               border-gray-200
               rounded-xl
@@ -2072,7 +2138,9 @@ function EditorDashboard() {
                       onChange={handleChange}
                       className="
               w-full
-              p-4
+              px-4
+py-3
+md:py-4
               border
               border-gray-200
               rounded-xl
@@ -2091,7 +2159,9 @@ function EditorDashboard() {
                       onChange={handleChange}
                       className="
               w-full
-              p-4
+              px-4
+py-3
+md:py-4
               border
               border-gray-200
               rounded-xl
@@ -2108,9 +2178,10 @@ function EditorDashboard() {
               bg-emerald-500
               hover:bg-emerald-600
               text-white
-              px-8
-              py-3
-              rounded-xl
+              w-full
+sm:w-auto
+px-8
+py-3              rounded-xl
               font-semibold
               transition-all
             "
@@ -2129,14 +2200,16 @@ function EditorDashboard() {
           bg-white
           rounded-3xl
           shadow-md
-          p-6
+          p-4
+md:p-6
           h-fit
         "
                 >
 
                   <h2
                     className="
-            text-xl
+            text-lg
+md:text-xl
             font-bold
             mb-6
           "
@@ -2144,7 +2217,8 @@ function EditorDashboard() {
                     Publishing Guide
                   </h2>
 
-                  <div className="space-y-5">
+                  <div className="space-y-4
+md:space-y-5">
 
                     <div>
 
@@ -2252,13 +2326,34 @@ function EditorDashboard() {
 
               <div>
 
-                <div className="flex justify-between items-center mb-6">
+                <div
+  className="
+    flex
+    flex-col
+    md:flex-row
+    md:items-center
+    md:justify-between
+    gap-4
+    mb-6
+  "
+>
 
-                  <h1 className="text-3xl font-bold">
+                  <h1 className="text-2xl
+md:text-3xl font-bold">
                     Raw News Feed
                   </h1>
 
-                  <div className="flex items-center gap-3">
+                  <div
+  className="
+    flex
+    items-center
+    justify-between
+    md:justify-end
+    gap-3
+    w-full
+    md:w-auto
+  "
+>
 
                     {/* Articles Count */}
 
@@ -2312,7 +2407,8 @@ function EditorDashboard() {
               absolute
               right-0
               mt-2
-              w-48
+              w-44
+md:w-48
               bg-white
               border
               border-gray-200
@@ -2467,44 +2563,59 @@ function EditorDashboard() {
                       <div
                         key={article._id}
                         className="
-    bg-white
-    rounded-3xl
-    shadow-sm
-    hover:shadow-lg
-    transition-all
-    p-6
-    mb-5
-    flex
-    gap-6
-  "
+bg-white
+rounded-3xl
+shadow-sm
+hover:shadow-lg
+transition-all
+p-4
+md:p-6
+mb-5
+flex
+flex-col
+md:flex-row
+gap-5
+"
                       >
 
                         <img
                           src={article.imageUrl}
                           alt="news"
                           className="
-      w-56
-      h-40
-      object-cover
-      rounded-2xl
-      flex-shrink-0
-    "
+w-full
+h-56
+md:w-56
+md:h-40
+object-cover
+rounded-2xl
+flex-shrink-0
+"
                         />
 
                         <div className="flex-1">
 
                           <h2
                             className="
-        text-xl
+        text-lg
+md:text-xl
         font-bold
         text-gray-900
         mb-3
+        line-clamp-2
+lg:line-clamp-none
       "
                           >
                             {article.title}
                           </h2>
 
-                          <div className="flex gap-2 mb-4">
+                          <div
+  className="
+    flex
+    flex-wrap
+    gap-2
+    mb-4
+  "
+>
 
                             <span
                               className="
@@ -2535,11 +2646,13 @@ function EditorDashboard() {
                           </div>
 
                           <p
-                            className="
-        text-gray-600
-        mb-5
-      "
-                          >
+  className="
+    text-sm
+    md:text-base
+    text-gray-600
+    mb-5
+  "
+>
                             Topic: {article.topic}
                           </p>
 
@@ -2551,9 +2664,10 @@ function EditorDashboard() {
         bg-cyan-600
         hover:bg-cyan-700
         text-white
-        px-5
-        py-3
-        rounded-xl
+        w-full
+sm:w-auto
+px-5
+py-3        rounded-xl
         font-medium
         transition-all
       "
@@ -2580,21 +2694,35 @@ function EditorDashboard() {
 
               <div>
 
-                <div className="flex items-center justify-between mb-6">
+                <div
+  className="
+    flex
+    flex-col
+    md:flex-row
+    md:items-center
+    md:justify-between
+    gap-4
+    mb-6
+  "
+>
 
-                  <h2 className="text-3xl font-bold">
+                  <h2 className="text-2xl
+md:text-3xl font-bold">
                     Draft Queue
                   </h2>
 
                   <span
                     className="
-            px-4
-            py-2
-            rounded-xl
-            bg-yellow-100
-            text-yellow-700
-            font-medium
-          "
+w-fit
+px-4
+py-2
+rounded-xl
+bg-yellow-100
+text-yellow-700
+text-sm
+md:text-base
+font-medium
+"
                   >
                     {draftNews.length} Drafts
                   </span>
@@ -2609,35 +2737,41 @@ function EditorDashboard() {
                       <div
                         key={article._id}
                         className="
-                bg-white
-                rounded-3xl
-                shadow-sm
-                hover:shadow-lg
-                transition-all
-                duration-300
-                p-6
-                flex
-                gap-6
-              "
+bg-white
+rounded-3xl
+shadow-sm
+hover:shadow-lg
+transition-all
+duration-300
+p-4
+md:p-6
+flex
+flex-col
+md:flex-row
+gap-5
+"
                       >
 
                         <img
                           src={article.imageUrl}
                           alt="news"
                           className="
-                  w-56
-                  h-40
-                  object-cover
-                  rounded-2xl
-                  flex-shrink-0
-                "
+w-full
+h-56
+md:w-56
+md:h-40
+object-cover
+rounded-2xl
+flex-shrink-0
+"
                         />
 
                         <div className="flex-1">
 
                           <h3
                             className="
-                    text-xl
+                    text-lg
+md:text-xl
                     font-bold
                     text-gray-900
                     mb-3
@@ -2647,7 +2781,14 @@ function EditorDashboard() {
                             {article.aiTitle}
                           </h3>
 
-                          <div className="flex gap-2 mb-4">
+                          <div
+  className="
+    flex
+    flex-wrap
+    gap-2
+    mb-4
+  "
+>
 
                             <span
                               className="
@@ -2681,21 +2822,33 @@ function EditorDashboard() {
 
                           <p
                             className="
-                    text-gray-600
-                    line-clamp-3
-                    mb-5
-                  "
+text-sm
+md:text-base
+text-gray-600
+line-clamp-3
+mb-5
+"
                           >
                             {article.aiSummary}
                           </p>
 
-                          <div className="flex gap-3">
+                          <div
+  className="
+    flex
+    flex-col
+    sm:flex-row
+    flex-wrap
+    gap-3
+  "
+>
 
                             <button
                               onClick={() =>
                                 setSelectedDraft(article)
                               }
                               className="
+                              w-full
+sm:w-auto
                       px-4
                       py-2
                       rounded-xl
@@ -2717,6 +2870,8 @@ function EditorDashboard() {
 
                               }}
                               className="
+                              w-full
+sm:w-auto
     px-4
     py-2
     rounded-xl
@@ -2737,6 +2892,8 @@ function EditorDashboard() {
                                 )
                               }
                               className="
+                              w-full
+sm:w-auto
                       px-4
                       py-2
                       rounded-xl
@@ -2769,9 +2926,16 @@ function EditorDashboard() {
           {
             activeTab === "submitted" && (
 
-              <div>
+              <div className="flex-1">
 
-                <h2 className="text-3xl font-bold mb-6">
+                <h2
+  className="
+    text-2xl
+    md:text-3xl
+    font-bold
+    mb-6
+  "
+>
                   Submitted News
                 </h2>
 
@@ -2789,45 +2953,62 @@ function EditorDashboard() {
                             )
                           }
                           className="
-                  bg-white
-                  rounded-3xl
-                  p-6
-                  shadow-sm
-                  border
-                  border-gray-200
-                  flex
-                  gap-5
-                  cursor-pointer
-                "
+bg-white
+rounded-3xl
+p-4
+md:p-6
+shadow-sm
+border
+border-gray-200
+flex
+flex-col
+md:flex-row
+gap-5
+cursor-pointer
+hover:shadow-lg
+transition-all
+"
                         >
 
                           <img
                             src={article.imageUrl}
                             className="
-                    w-48
-                    h-32
-                    rounded-xl
-                    object-cover
-                  "
+w-full
+h-56
+md:w-48
+md:h-32
+rounded-xl
+object-cover
+flex-shrink-0
+"
                           />
 
                           <div>
 
-                            <h3 className="font-bold text-lg">
+                            <h3
+  className="
+    font-bold
+    text-lg
+    md:text-xl
+    line-clamp-2
+  "
+>
                               {article.aiTitle}
                             </h3>
 
                             <span
                               className="
-                      inline-block
-                      mt-2
-                      px-3
-                      py-1
-                      rounded-full
-                      bg-purple-100
-                      text-purple-700
-                      text-sm
-                    "
+inline-block
+mt-3
+px-3
+py-1
+rounded-full
+bg-purple-100
+text-purple-700
+text-xs
+md:text-sm
+font-medium
+"
                             >
                               Pending Review
                             </span>
@@ -2850,9 +3031,16 @@ function EditorDashboard() {
           {
             activeTab === "published" && (
 
-              <div>
+              <div className="flex-1">
 
-                <h2 className="text-3xl font-bold mb-6">
+                <h2
+  className="
+    text-2xl
+    md:text-3xl
+    font-bold
+    mb-6
+  "
+>
                   Published News
                 </h2>
 
@@ -2870,45 +3058,63 @@ function EditorDashboard() {
                             )
                           }
                           className="
-                  bg-white
-                  rounded-3xl
-                  p-6
-                  shadow-sm
-                  border
-                  border-gray-200
-                  flex
-                  gap-5
-                  cursor-pointer
-                "
+bg-white
+rounded-3xl
+p-4
+md:p-6
+shadow-sm
+border
+border-gray-200
+flex
+flex-col
+md:flex-row
+gap-5
+cursor-pointer
+hover:shadow-lg
+transition-all
+duration-300
+"
                         >
 
                           <img
                             src={article.imageUrl}
                             className="
-                    w-48
-                    h-32
-                    rounded-xl
-                    object-cover
-                  "
+w-full
+h-56
+md:w-48
+md:h-32
+rounded-xl
+object-cover
+flex-shrink-0
+"
                           />
 
                           <div>
 
-                            <h3 className="font-bold text-lg">
+                            <h3
+  className="
+    font-bold
+    text-lg
+    md:text-xl
+    line-clamp-2
+  "
+>
                               {article.title}
                             </h3>
 
                             <span
                               className="
-                      inline-block
-                      mt-2
-                      px-3
-                      py-1
-                      rounded-full
-                      bg-green-100
-                      text-green-700
-                      text-sm
-                    "
+inline-block
+mt-3
+px-3
+py-1
+rounded-full
+bg-green-100
+text-green-700
+text-xs
+md:text-sm
+font-medium
+"
                             >
                               Published
                             </span>
@@ -2938,65 +3144,66 @@ function EditorDashboard() {
             onClick={() =>
               setSelectedDraft(null)
             }
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              backgroundColor:
-                "rgba(0,0,0,0.6)",
-              backdropFilter:
-                "blur(5px)",
-              display: "flex",
-              justifyContent:
-                "center",
-              alignItems:
-                "center",
-              zIndex: 9999,
-              padding: "20px"
-            }}
+            className="
+fixed
+inset-0
+bg-black/60
+backdrop-blur-sm
+flex
+items-center
+justify-center
+z-50
+p-4
+md:p-6
+"
           >
 
             <div
               onClick={(e) =>
                 e.stopPropagation()
               }
-              style={{
-                backgroundColor:
-                  "white",
-                width: "90%",
-                maxWidth: "1000px",
-                maxHeight: "90vh",
-                overflowY: "auto",
-                borderRadius: "15px",
-                padding: "25px"
-              }}
+              className="
+bg-white
+w-full
+max-w-5xl
+max-h-[95vh]
+overflow-y-auto
+rounded-2xl
+lg:rounded-3xl
+p-4
+md:p-6
+lg:p-8
+pb-28
+md:pb-36
+lg:pb-8
+"
             >
 
               <button
                 onClick={() =>
                   setSelectedDraft(null)
                 }
-                style={{
-                  float: "right",
-                  border: "none",
-                  background:
-                    "transparent",
-                  fontSize: "24px",
-                  cursor: "pointer"
-                }}
+                className="
+float-right
+text-xl
+md:text-2xl
+font-bold
+hover:text-red-500
+transition
+"
               >
                 ×
               </button>
 
               <div
-                style={{
-                  display: "flex",
-                  gap: "20px",
-                  marginBottom:
-                    "25px"
-                }}
+                className="
+flex
+flex-col
+md:flex-row
+gap-6
+lg:gap-8
+mb-6
+"
               >
 
                 <img
@@ -3004,28 +3211,41 @@ function EditorDashboard() {
                     selectedDraft.imageUrl
                   }
                   alt="news"
-                  style={{
-                    width: "300px",
-                    height: "200px",
-                    objectFit: "cover",
-                    borderRadius: "10px"
-                  }}
+                  className="
+w-full
+h-56
+md:w-80
+md:h-52
+object-cover
+rounded-2xl
+"
                 />
 
-                <div>
+                <div className="flex-1">
 
-                  <h1>
+                  <h1
+  className="
+    text-xl
+    md:text-2xl
+    lg:text-3xl
+    font-bold
+    leading-tight
+"
+>
                     {
                       selectedDraft.aiTitle
                     }
                   </h1>
 
                   <p
-                    style={{
-                      marginTop:
-                        "15px",
-                      color: "#555"
-                    }}
+                    className="
+mt-4
+text-sm
+md:text-base
+text-gray-600
+line-clamp-3
+lg:line-clamp-none
+"
                   >
                     {
                       selectedDraft.aiSummary
@@ -3033,10 +3253,11 @@ function EditorDashboard() {
                   </p>
 
                   <p
-                    style={{
-                      marginTop:
-                        "15px"
-                    }}
+                    className="
+mt-4
+text-sm
+md:text-base
+"
                   >
 
                     <strong>
@@ -3058,12 +3279,15 @@ function EditorDashboard() {
               <hr />
 
               <div
-                style={{
-                  marginTop: "25px",
-                  whiteSpace:
-                    "pre-wrap",
-                  lineHeight: "1.9"
-                }}
+                className="
+mt-6
+whitespace-pre-wrap
+leading-7
+md:leading-8
+text-sm
+md:text-base
+text-gray-700
+"
               >
 
                 {
@@ -3086,33 +3310,49 @@ function EditorDashboard() {
 
           <div
             className="
-        fixed
-        inset-0
-        bg-black/40
-        backdrop-blur-sm
-        z-50
-        flex
-        items-center
-        justify-center
-        p-6
-      "
+fixed
+inset-0
+bg-black/50
+backdrop-blur-sm
+z-50
+flex
+items-center
+justify-center
+p-4
+md:p-6
+"
           >
 
             <div
               className="
-          bg-white
-          rounded-3xl
-          w-full
-          max-w-5xl
-          max-h-[90vh]
-          overflow-y-auto
-          p-8
-        "
+bg-white
+rounded-2xl
+lg:rounded-3xl
+w-full
+max-w-5xl
+max-h-[95vh]
+overflow-y-auto
+p-4
+md:p-6
+lg:p-8
+pb-28
+md:pb-36
+lg:pb-8
+"
             >
 
-              <div className="flex justify-between mb-6">
+              <div
+  className="
+    flex
+    items-center
+    justify-between
+    mb-5
+    md:mb-6
+  "
+>
 
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-xl
+md:text-2xl font-bold">
                   Edit Draft
                 </h2>
 
@@ -3120,7 +3360,12 @@ function EditorDashboard() {
                   onClick={() =>
                     setIsEditing(false)
                   }
-                  className="text-2xl"
+                  className="
+text-xl
+md:text-2xl
+hover:text-red-500
+transition
+"
                 >
                   ✕
                 </button>
@@ -3136,12 +3381,17 @@ function EditorDashboard() {
                   })
                 }
                 className="
-    w-full
-    border
-    rounded-xl
-    p-3
-    mb-4
-  "
+w-full
+border
+rounded-xl
+px-4
+py-3
+md:py-4
+mb-4
+focus:outline-none
+focus:ring-2
+focus:ring-emerald-500
+"
               />
 
               <textarea
@@ -3154,12 +3404,17 @@ function EditorDashboard() {
                 }
                 rows={3}
                 className="
-    w-full
-    border
-    rounded-xl
-    p-3
-    mb-4
-  "
+w-full
+border
+rounded-xl
+px-4
+py-3
+md:py-4
+mb-4
+focus:outline-none
+focus:ring-2
+focus:ring-emerald-500
+"
               />
 
               <textarea
@@ -3170,14 +3425,19 @@ function EditorDashboard() {
                     aiContent: e.target.value
                   })
                 }
-                rows={12}
+                rows={10}
                 className="
-    w-full
-    border
-    rounded-xl
-    p-3
-    mb-4
-  "
+w-full
+border
+rounded-xl
+px-4
+py-3
+md:py-4
+mb-4
+focus:outline-none
+focus:ring-2
+focus:ring-emerald-500
+"
               />
 
               <input
@@ -3190,23 +3450,38 @@ function EditorDashboard() {
                   })
                 }
                 className="
-    w-full
-    border
-    rounded-xl
-    p-3
-    mb-6
-  "
+w-full
+border
+rounded-xl
+px-4
+py-3
+md:py-4
+mb-4
+focus:outline-none
+focus:ring-2
+focus:ring-emerald-500
+"
               />
-              <div className="flex justify-end gap-4">
+              <div
+  className="
+    flex
+    flex-col
+    sm:flex-row
+    justify-end
+    gap-3
+    mt-6
+  "
+>
 
                 <button
                   onClick={() =>
                     setIsEditing(false)
                   }
                   className="
-      px-5
-      py-3
-      rounded-xl
+      w-full
+sm:w-auto
+px-5
+py-3      rounded-xl
       bg-gray-200
     "
                 >
@@ -3216,9 +3491,10 @@ function EditorDashboard() {
                 <button
                   onClick={handleUpdateDraft}
                   className="
-      px-5
-      py-3
-      rounded-xl
+      w-full
+sm:w-auto
+px-5
+py-3      rounded-xl
       bg-emerald-600
       text-white
     "
@@ -3240,43 +3516,50 @@ function EditorDashboard() {
 
           <div
             className="
-        fixed
-        inset-0
-        bg-black/40
-        backdrop-blur-sm
-        z-50
-        flex
-        items-center
-        justify-center
-        p-6
-      "
+fixed
+inset-0
+bg-black/50
+backdrop-blur-sm
+z-50
+flex
+items-center
+justify-center
+p-4
+md:p-6
+"
           >
 
             <div
               className="
-          bg-white
-          rounded-3xl
-          w-full
-          max-w-5xl
-          max-h-[90vh]
-          overflow-y-auto
-          shadow-2xl
-        "
+bg-white
+rounded-2xl
+lg:rounded-3xl
+w-full
+max-w-5xl
+max-h-[95vh]
+overflow-y-auto
+shadow-2xl
+pb-28
+md:pb-36
+lg:pb-0
+"
             >
 
               <div
                 className="
-            flex
-            justify-between
-            items-center
-            p-6
-            border-b
-          "
+flex
+justify-between
+items-center
+p-4
+md:p-6
+border-b
+"
               >
 
                 <h2
                   className="
-              text-2xl
+              text-xl
+md:text-2xl
               font-bold
             "
                 >
@@ -3288,34 +3571,47 @@ function EditorDashboard() {
                     setShowDraftModal(false)
                   }
                   className="
-              text-2xl
-            "
+text-xl
+md:text-2xl
+hover:text-red-500
+transition
+"
                 >
                   ✕
                 </button>
 
               </div>
 
-              <div className="p-8">
+              <div className="
+p-4
+md:p-6
+lg:p-8
+">
 
                 <h1
                   className="
-              text-3xl
-              font-bold
-              mb-4
-            "
+text-xl
+md:text-2xl
+lg:text-3xl
+font-bold
+leading-tight
+mb-4
+"
                 >
                   {formData.title}
                 </h1>
 
                 <span
                   className="
-              bg-purple-100
-              text-purple-700
-              px-3
-              py-1
-              rounded-full
-            "
+inline-block
+bg-purple-100
+text-purple-700
+text-xs
+md:text-sm
+px-3
+py-1
+rounded-full
+"
                 >
                   {formData.category}
                 </span>
@@ -3335,10 +3631,13 @@ function EditorDashboard() {
                         <p
                           key={index}
                           className="
-                      text-lg
-                      leading-8
-                      text-justify
-                    "
+text-sm
+md:text-base
+lg:text-lg
+leading-7
+md:leading-8
+text-justify
+"
                         >
                           {para}
                         </p>
@@ -3360,9 +3659,10 @@ function EditorDashboard() {
                         setShowDraftModal(false)
                       }
                       className="
-      px-5
-      py-3
-      rounded-xl
+      w-full
+sm:w-auto
+px-5
+py-3      rounded-xl
       bg-gray-200
       hover:bg-gray-300
       transition-all
@@ -3374,9 +3674,10 @@ function EditorDashboard() {
                     <button
                       onClick={handleSubmit}
                       className="
-      px-5
-      py-3
-      rounded-xl
+      w-full
+sm:w-auto
+px-5
+py-3      rounded-xl
       bg-emerald-600
       hover:bg-emerald-700
       text-white
@@ -3400,6 +3701,166 @@ function EditorDashboard() {
 
         )
       }
+
+      {/* Mobile & Tablet Bottom Navigation */}
+
+      {
+  showMoreMenu && (
+
+    <div
+      className="
+        fixed
+        bottom-20
+        right-4
+        w-56
+        bg-white
+        rounded-2xl
+        shadow-xl
+        border
+        z-50
+        lg:hidden
+      "
+    >
+
+      <button
+        onClick={() => {
+          setActiveTab("raw");
+          setShowMoreMenu(false);
+        }}
+        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+      >
+        📰 Raw Feed
+      </button>
+
+      <button
+        onClick={() => {
+          setActiveTab("draft");
+          setShowMoreMenu(false);
+        }}
+        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+      >
+        📄 Drafts
+      </button>
+
+      <button
+        onClick={() => {
+          setActiveTab("submitted");
+          setShowMoreMenu(false);
+        }}
+        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+      >
+        📤 Submitted
+      </button>
+
+      <button
+        onClick={() => {
+          setActiveTab("published");
+          setShowMoreMenu(false);
+        }}
+        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+      >
+        ✅ Published
+      </button>
+
+    </div>
+
+  )
+}
+
+<div
+  className="
+    fixed
+    bottom-0
+    left-0
+    right-0
+    lg:hidden
+    bg-white
+    border-t
+    shadow-lg
+    z-50
+  "
+>
+
+  <div className="grid grid-cols-4">
+
+    {/* Dashboard */}
+
+    <button
+      onClick={() => {
+        setActiveTab("dashboard");
+        setShowMoreMenu(false);
+      }}
+      className="
+        flex
+        flex-col
+        items-center
+        py-3
+        text-xs
+      "
+    >
+      📊
+      <span>Dashboard</span>
+    </button>
+
+    {/* Create */}
+
+    <button
+      onClick={() => {
+        setActiveTab("create");
+        setShowMoreMenu(false);
+      }}
+      className="
+        flex
+        flex-col
+        items-center
+        py-3
+        text-xs
+      "
+    >
+      ✍️
+      <span>Create</span>
+    </button>
+
+    {/* AI */}
+
+    <button
+      onClick={() => {
+        setActiveTab("ai");
+        setShowMoreMenu(false);
+      }}
+      className="
+        flex
+        flex-col
+        items-center
+        py-3
+        text-xs
+      "
+    >
+      🤖
+      <span>AI</span>
+    </button>
+
+    {/* More */}
+
+    <button
+      onClick={() =>
+        setShowMoreMenu(!showMoreMenu)
+      }
+      className="
+        flex
+        flex-col
+        items-center
+        py-3
+        text-xs
+      "
+    >
+      ☰
+      <span>More</span>
+    </button>
+
+  </div>
+
+</div>
 
     </>
 

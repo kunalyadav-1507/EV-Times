@@ -4929,14 +4929,20 @@ transition
                     e.stopPropagation()
                   }
                   className="
-          bg-white
-          rounded-3xl
-          w-full
-          max-w-5xl
-          max-h-[90vh]
-          overflow-y-auto
-          p-8
-        "
+bg-white
+rounded-2xl
+lg:rounded-3xl
+w-full
+max-w-5xl
+max-h-[95vh]
+overflow-y-auto
+p-4
+md:p-6
+lg:p-8
+ pb-20
+ md:pb-20
+    lg:pb-8
+"
                 >
 
                   <button
@@ -4952,7 +4958,15 @@ transition
                     ×
                   </button>
 
-                  <div className="flex gap-8">
+                  <div
+  className="
+    flex
+    flex-col
+    md:flex-row
+    gap-6
+    lg:gap-8
+  "
+>
 
                     <img
                       src={
@@ -4960,20 +4974,25 @@ transition
                       }
                       alt="news"
                       className="
-              w-80
-              h-52
-              object-cover
-              rounded-2xl
-            "
+w-full
+h-56
+md:w-80
+md:h-52
+object-cover
+rounded-2xl
+"
                     />
 
                     <div className="flex-1">
 
                       <h1
                         className="
-                text-3xl
-                font-bold
-              "
+text-xl
+md:text-2xl
+lg:text-3xl
+font-bold
+leading-tight
+"
                       >
                         {
                           selectedPendingNews.title
@@ -4982,9 +5001,11 @@ transition
 
                       <p
                         className="
-                mt-4
-                text-gray-600
-              "
+mt-3
+text-sm
+md:text-base
+text-gray-600
+"
                       >
                         Category:
                         {" "}
@@ -5001,10 +5022,13 @@ transition
 
                   <div
                     className="
-            whitespace-pre-wrap
-            leading-8
-            text-gray-700
-          "
+whitespace-pre-wrap
+leading-7
+md:leading-8
+text-sm
+md:text-base
+text-gray-700
+"
                   >
 
                     {
@@ -5014,22 +5038,25 @@ transition
                   </div>
 
                   <div
-                    className="
-            flex
-            justify-end
-            gap-4
-            mt-10
-          "
-                  >
+  className="
+    flex
+    flex-col
+    sm:flex-row
+    justify-end
+    gap-3
+    mt-8
+  "
+>
 
                     <button
                       onClick={() =>
                         setSelectedPendingNews(null)
                       }
                       className="
-              px-6
-              py-3
-              rounded-xl
+              w-full
+sm:w-auto
+px-6
+py-3              rounded-xl
               bg-gray-200
             "
                     >
@@ -5049,9 +5076,10 @@ transition
 
                       }}
                       className="
-              px-6
-              py-3
-              rounded-xl
+              w-full
+sm:w-auto
+px-6
+py-3              rounded-xl
               bg-red-500
               text-white
             "
@@ -5072,9 +5100,10 @@ transition
 
                       }}
                       className="
-              px-6
-              py-3
-              rounded-xl
+              w-full
+sm:w-auto
+px-6
+py-3              rounded-xl
               bg-green-500
               text-white
             "
@@ -5117,14 +5146,20 @@ transition
                     e.stopPropagation()
                   }
                   className="
-          bg-white
-          rounded-3xl
-          w-full
-          max-w-5xl
-          max-h-[90vh]
-          overflow-y-auto
-          p-8
-        "
+bg-white
+rounded-2xl
+lg:rounded-3xl
+w-full
+max-w-5xl
+max-h-[95vh]
+overflow-y-auto
+p-4
+md:p-6
+lg:p-8
+pb-20
+md:pb-20
+lg:pb-8
+"
                 >
 
                   <button
@@ -5140,7 +5175,15 @@ transition
                     ×
                   </button>
 
-                  <div className="flex gap-8">
+                  <div
+  className="
+    flex
+    flex-col
+    md:flex-row
+    gap-6
+    lg:gap-8
+  "
+>
 
                     <img
                       src={
@@ -5148,19 +5191,27 @@ transition
                       }
                       alt="news"
                       className="
-              w-80
-              h-52
-              object-cover
-              rounded-2xl
-            "
+w-full
+h-56
+md:w-80
+md:h-52
+object-cover
+rounded-2xl
+"
                     />
 
                     <div className="flex-1">
 
                       <h1
                         className="
-                text-3xl
-                font-bold
+text-xl
+md:text-2xl
+lg:text-3xl
+font-bold
+leading-tight
+line-clamp-2
+lg:line-clamp-none
+
               "
                       >
                         {
@@ -5170,9 +5221,13 @@ transition
 
                       <p
                         className="
-                mt-4
-                text-gray-600
-              "
+mt-3
+text-sm
+md:text-base
+text-gray-600
+line-clamp-3
+lg:line-clamp-none
+"
                       >
                         {
                           selectedAIArticle.aiSummary
@@ -5180,12 +5235,13 @@ transition
                       </p>
 
                       <div
-                        className="
-                flex
-                gap-3
-                mt-5
-              "
-                      >
+  className="
+    flex
+    flex-wrap
+    gap-2
+    mt-5
+  "
+>
 
                         <span
                           className="
@@ -5223,10 +5279,13 @@ transition
 
                   <div
                     className="
-            whitespace-pre-wrap
-            leading-8
-            text-gray-700
-          "
+whitespace-pre-wrap
+leading-7
+md:leading-8
+text-sm
+md:text-base
+text-gray-700
+"
                   >
 
                     {
@@ -5236,22 +5295,25 @@ transition
                   </div>
 
                   <div
-                    className="
-            flex
-            justify-end
-            gap-4
-            mt-10
-          "
-                  >
+  className="
+    flex
+    flex-col
+    sm:flex-row
+    justify-end
+    gap-3
+    mt-8
+  "
+>
 
                     <button
                       onClick={() =>
                         setSelectedAIArticle(null)
                       }
                       className="
-              px-6
-              py-3
-              rounded-xl
+              w-full
+sm:w-auto
+px-6
+py-3              rounded-xl
               bg-gray-200
             "
                     >
@@ -5265,9 +5327,10 @@ transition
                         )
                       }
                       className="
-    px-6
-    py-3
-    rounded-xl
+    w-full
+sm:w-auto
+px-6
+py-3    rounded-xl
     bg-red-500
     text-white
   "
@@ -5282,9 +5345,10 @@ transition
                         )
                       }
                       className="
-    px-6
-    py-3
-    rounded-xl
+    w-full
+sm:w-auto
+px-6
+py-3    rounded-xl
     bg-green-500
     text-white
   "

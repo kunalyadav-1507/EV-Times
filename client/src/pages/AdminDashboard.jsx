@@ -3496,7 +3496,12 @@ function AdminDashboard() {
                       </div>
 
                       <button
-                        onClick={() => setActiveTab("external")}
+                       onClick={() => {
+  setActiveTab("external");
+  setFilter("all");
+  setSelectedFilter("all");
+  setCurrentPage(1);
+}}
                         className="
           px-4
           py-2
@@ -4553,10 +4558,12 @@ transition
                     <div
   className="
     flex
-    flex-wrap
     items-center
-    justify-between
-    gap-3
+    justify-end
+    gap-2
+    w-full
+    lg:w-auto
+    whitespace-nowrap
   "
 >
 
@@ -4568,7 +4575,15 @@ transition
                           );
                           setCurrentPage(1);
                         }}
-                        className="border rounded px-2 py-1"
+                        className="
+border
+rounded
+px-2
+py-1
+text-xs
+md:text-sm
+w-16
+"
                       >
                         <option value={25}>25</option>
                         <option value={50}>50</option>
@@ -4576,7 +4591,13 @@ transition
                         <option value={100}>100</option>
                       </select>
 
-                      <span>
+                      <span
+  className="
+    text-xs
+    md:text-sm
+    whitespace-nowrap
+  "
+>
                         {firstIndex + 1}
                         -
                         {lastIndex}
@@ -4585,19 +4606,43 @@ transition
                       </span>
 
                       <button
-                        disabled={currentPage === 1}
-                        onClick={() =>
-                          setCurrentPage(prev => prev - 1)
-                        }
-                      >
-                        ◀
-                      </button>
+  disabled={currentPage === 1}
+  onClick={() =>
+    setCurrentPage(prev => prev - 1)
+  }
+  className="
+    w-7
+    h-7
+    md:w-8
+    md:h-8
+    flex
+    items-center
+    justify-center
+    rounded-md
+    hover:bg-gray-100
+    disabled:opacity-40
+  "
+>
+  ◀
+</button>
 
                       <button
                         disabled={currentPage === totalPages}
                         onClick={() =>
                           setCurrentPage(prev => prev + 1)
                         }
+                        className="
+    w-7
+    h-7
+    md:w-8
+    md:h-8
+    flex
+    items-center
+    justify-center
+    rounded-md
+    hover:bg-gray-100
+    disabled:opacity-40
+  "
                       >
                         ▶
                       </button>

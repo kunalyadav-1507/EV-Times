@@ -121,18 +121,21 @@ function Navbar() {
 
           <div
             className="
-    hidden
-    lg:block
-    absolute
-    left-8
-    top-9
-  "
+hidden
+lg:block
+absolute
+left-4
+xl:left-8
+top-8
+xl:top-9
+"
           >
             <p
               className="
   text-[10px]
-  sm:text-sm
-  lg:text-xl
+sm:text-sm
+lg:text-sm
+xl:text-xl
   text-gray-600
   font-medium
 "
@@ -143,8 +146,9 @@ function Navbar() {
             <p
               className="
   text-[10px]
-  sm:text-xs
-  lg:text-xl
+sm:text-sm
+lg:text-sm
+xl:text-xl
   text-gray-600
 "
             >
@@ -185,8 +189,10 @@ w-8
 h-8
 sm:w-10
 sm:h-10
-lg:w-16
-lg:h-24
+lg:w-12
+lg:h-16
+xl:w-16
+xl:h-24
 object-contain
 "
             />
@@ -195,7 +201,8 @@ object-contain
 
               <h1 className="text-lg
 sm:text-xl
-lg:text-4xl font-serif font-bold tracking-wide text-green-900">
+lg:text-2xl
+xl:text-4xl font-serif font-bold tracking-wide text-green-900">
 
                 EV TIMES
 
@@ -203,7 +210,7 @@ lg:text-4xl font-serif font-bold tracking-wide text-green-900">
 
               <p className="
   hidden
-  lg:block
+  xl:block
   text-medium
   text-black-900
   tracking-wider
@@ -279,7 +286,8 @@ lg:text-4xl font-serif font-bold tracking-wide text-green-900">
     hidden
     md:block
     lg:hidden
-    text-xl
+    text-base
+xl:text-xl
     hover:text-green-700
     transition
   "
@@ -321,7 +329,7 @@ lg:text-4xl font-serif font-bold tracking-wide text-green-900">
                         ? "/admin-dashboard"
                         : "/editor-dashboard"
                     }
-                    className="text-xl font-semibold hover:text-blue-600 transition"
+                    className="text-sm xl:text-xl font-semibold hover:text-blue-600 transition"
                   >
 
                     Dashboard
@@ -332,7 +340,7 @@ lg:text-4xl font-serif font-bold tracking-wide text-green-900">
 
                 <button
                   onClick={handleLogout}
-                  className=" text-xl font-semibold hover:text-red-500 transition"
+                  className=" text-sm xl:text-xl font-semibold hover:text-red-500 transition"
                 >
 
                   Logout
@@ -623,8 +631,10 @@ text-sm
     left-1/2
     -translate-x-1/2
     items-center
-    gap-10
-    text-2xl
+    gap-5
+xl:gap-10
+text-base
+xl:text-2xl
     font-semibold
     text-gray-600
   "
@@ -814,8 +824,11 @@ text-sm
       px-4
       py-2
       rounded-full
-      w-64
-      text-lg
+      w-40
+lg:w-44
+xl:w-64
+text-sm
+xl:text-lg
       outline-none
       focus:ring-2
       focus:ring-gray-400

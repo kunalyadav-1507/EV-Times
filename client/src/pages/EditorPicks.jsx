@@ -127,6 +127,12 @@ function SearchResults() {
   };
 
   const latestNewsSectionRef = useRef(null);
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}, []);
 
 
   // FETCH SEARCH NEWS

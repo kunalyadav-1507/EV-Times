@@ -6,8 +6,7 @@ import Navbar from "../components/Navbar";
 
 import { fetchNewsByCategory } from "../services/newsService";
 
-import NewsCard
-  from "../components/NewsCard";
+
 
 import {
 
@@ -121,6 +120,12 @@ function EVNews() {
   };
 
   const latestNewsSectionRef = useRef(null);
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}, []);
 
   // FETCH EV NEWS
 

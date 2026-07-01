@@ -7,7 +7,7 @@ from "../services/newsService";
 
 import Navbar from "../components/Navbar";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { getApprovedNews } from "../services/publicNewsService";
 
@@ -23,7 +23,7 @@ import {
 
   from "../services/savedNewsService";
 
-import NewsCard from "../components/NewsCard";
+
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -64,8 +64,13 @@ function Home() {
 
   ] = useState(false);
 
-  const navigate = useNavigate();
 
+useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}, []);
 
 
 

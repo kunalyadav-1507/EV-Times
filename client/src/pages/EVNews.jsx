@@ -129,6 +129,13 @@ function EVNews() {
 
   const latestNewsSectionRef = useRef(null);
 
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}, []);
+
 
   // FETCH EV NEWS
 

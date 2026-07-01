@@ -423,7 +423,6 @@ function EditorDashboard() {
       }
 
     };
-
   const handleUpdateDraft = async () => {
 
     try {

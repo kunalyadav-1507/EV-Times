@@ -210,7 +210,7 @@ xl:text-4xl font-serif font-bold tracking-wide text-green-900">
 
               <p className="
   hidden
-  xl:block
+  lg:block
   text-medium
   text-black-900
   tracking-wider

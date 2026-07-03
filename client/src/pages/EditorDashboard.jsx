@@ -6,6 +6,8 @@ import { createNews } from "../services/editorService";
 
 import { FaFilter } from "react-icons/fa";
 
+import toast from "react-hot-toast";
+
 const API = import.meta.env.VITE_API_URL;
 
 
@@ -64,9 +66,9 @@ function EditorDashboard() {
     setRawFilter] =
     useState("all");
 
-    const [showFilter,
-  setShowFilter] =
-  useState(false);
+  const [showFilter,
+    setShowFilter] =
+    useState(false);
 
   const [showMoreMenu, setShowMoreMenu] = useState(false);
 
@@ -83,7 +85,7 @@ function EditorDashboard() {
       setLoading(true);
 
       const response = await fetch(
-         `${API}/ai/generate`,
+        `${API}/ai/generate`,
         {
           method: "POST",
           headers: {
@@ -123,7 +125,7 @@ function EditorDashboard() {
 
       console.log(error);
 
-      alert("AI Generation Failed");
+      toast.error("AI Generation Failed");
 
     } finally {
 
@@ -154,7 +156,7 @@ function EditorDashboard() {
 
       console.log(response.data);
 
-      alert("News Created Successfully");
+      toast.success("News Created Successfully");
       setShowDraftModal(false);
 
       // CLEAR FORM
@@ -175,7 +177,7 @@ function EditorDashboard() {
 
       console.log(error);
 
-      alert("Failed To Create News");
+      toast.error("Failed To Create News");
 
     }
 
@@ -187,7 +189,7 @@ function EditorDashboard() {
 
       const response =
         await fetch(
-           `${API}/external-news/raw`
+          `${API}/external-news/raw`
         );
 
       const data =
@@ -210,7 +212,7 @@ function EditorDashboard() {
 
       const response =
         await fetch(
-           `${API}/external-news/drafts`
+          `${API}/external-news/drafts`
         );
 
       const data =
@@ -233,7 +235,7 @@ function EditorDashboard() {
       try {
 
         const response = await fetch(
-           `${API}/external-news/published-count`
+          `${API}/external-news/published-count`
         );
 
         const data =
@@ -259,7 +261,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-             `${API}/external-news/submitted-count`
+            `${API}/external-news/submitted-count`
           );
 
         const data =
@@ -286,7 +288,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-             `${API}/external-news/pending`
+            `${API}/external-news/pending`
           );
 
         const data =
@@ -311,7 +313,7 @@ function EditorDashboard() {
 
         const response =
           await fetch(
-             `${API}/external-news/published`
+            `${API}/external-news/published`
           );
 
         const data =
@@ -345,69 +347,30 @@ function EditorDashboard() {
   }, []);
 
   const handleGenerateDraft =
-  async (id) => {
-
-    try {
-
-      const response =
-        await fetch(
-           `${API}/ai/generate-draft/${id}`,
-          {
-            method: "POST"
-          }
-        );
-
-      const data =
-        await response.json();
-
-      // Remove instantly from UI
-      setRawNews(prev =>
-        prev.filter(
-          news => news._id !== id
-        )
-      );
-
-      alert("Draft Generated");
-
-      fetchDraftNews();
-
-    }
-
-    catch (error) {
-
-      console.log(error);
-
-      alert(
-        "Draft Generation Failed"
-      );
-
-    }
-
-  };
-
-  const handleSubmitToAdmin =
     async (id) => {
 
       try {
 
         const response =
           await fetch(
-
-             `${API}/external-news/submit/${id}`,
-
+            `${API}/ai/generate-draft/${id}`,
             {
               method: "POST"
             }
-
           );
 
         const data =
           await response.json();
 
-        alert(
-          "Sent To Admin"
+        // Remove instantly from UI
+        setRawNews(prev =>
+          prev.filter(
+            news => news._id !== id
+          )
         );
-        setSelectedDraft(null);
+
+        toast.success("Draft Generated");
+
         fetchDraftNews();
 
       }
@@ -416,20 +379,50 @@ function EditorDashboard() {
 
         console.log(error);
 
-        alert(
-          "Failed To Submit"
+        toast.error(
+          "Draft Generation Failed"
         );
 
       }
 
     };
+
+  const handleSubmitToAdmin = async (id) => {
+
+    try {
+
+      await fetch(
+        `${API}/external-news/submit/${id}`,
+        {
+          method: "POST",
+        }
+      );
+
+      toast.success("Sent To Admin");
+
+      setSelectedDraft(null);
+
+      // Refresh all affected data
+      await fetchDraftNews();
+      await fetchPendingNews();
+      await fetchSubmittedCount();
+
+    } catch (error) {
+
+      console.log(error);
+
+      toast.error("Failed To Submit");
+
+    }
+
+  };
   const handleUpdateDraft = async () => {
 
     try {
 
       const response = await fetch(
 
-         `${API}/external-news/draft/${editingDraft._id}`,
+        `${API}/external-news/draft/${editingDraft._id}`,
 
         {
           method: "PUT",
@@ -458,7 +451,7 @@ function EditorDashboard() {
 
       const data = await response.json();
 
-      alert("Draft Updated Successfully");
+      toast.success("Draft Updated Successfully");
 
       setIsEditing(false);
 
@@ -470,7 +463,7 @@ function EditorDashboard() {
 
       console.log(error);
 
-      alert("Failed To Update Draft");
+      toast.error("Failed To Update Draft");
 
     }
 
@@ -494,20 +487,19 @@ function EditorDashboard() {
 
       <div className="flex bg-gray-100 min-h-screen">
         <div
-          className="
-           hidden
+  className="
+    hidden
     lg:flex
     w-64
     bg-slate-950
     text-white
     min-h-screen
     p-6
-    flex
     flex-col
     border-r
     border-slate-800
   "
-        >
+>
 
           {/* Logo */}
 
@@ -917,7 +909,7 @@ function EditorDashboard() {
             </div>
 
             <div
-  className="
+              className="
     grid
     grid-cols-2
     md:grid-cols-4
@@ -926,7 +918,7 @@ function EditorDashboard() {
     lg:gap-6
     mb-8
   "
->
+            >
 
               {/* Raw */}
 
@@ -2329,7 +2321,7 @@ md:space-y-5">
               <div>
 
                 <div
-  className="
+                  className="
     flex
     flex-col
     md:flex-row
@@ -2338,7 +2330,7 @@ md:space-y-5">
     gap-4
     mb-6
   "
->
+                >
 
                   <h1 className="text-2xl
 md:text-3xl font-bold">
@@ -2346,7 +2338,7 @@ md:text-3xl font-bold">
                   </h1>
 
                   <div
-  className="
+                    className="
     flex
     items-center
     justify-between
@@ -2355,7 +2347,7 @@ md:text-3xl font-bold">
     w-full
     md:w-auto
   "
->
+                  >
 
                     {/* Articles Count */}
 
@@ -2611,13 +2603,13 @@ lg:line-clamp-none
                           </h2>
 
                           <div
-  className="
+                            className="
     flex
     flex-wrap
     gap-2
     mb-4
   "
->
+                          >
 
                             <span
                               className="
@@ -2648,13 +2640,13 @@ lg:line-clamp-none
                           </div>
 
                           <p
-  className="
+                            className="
     text-sm
     md:text-base
     text-gray-600
     mb-5
   "
->
+                          >
                             Topic: {article.topic}
                           </p>
 
@@ -2697,7 +2689,7 @@ py-3        rounded-xl
               <div>
 
                 <div
-  className="
+                  className="
     flex
     flex-col
     md:flex-row
@@ -2706,7 +2698,7 @@ py-3        rounded-xl
     gap-4
     mb-6
   "
->
+                >
 
                   <h2 className="text-2xl
 md:text-3xl font-bold">
@@ -2784,13 +2776,13 @@ md:text-xl
                           </h3>
 
                           <div
-  className="
+                            className="
     flex
     flex-wrap
     gap-2
     mb-4
   "
->
+                          >
 
                             <span
                               className="
@@ -2835,14 +2827,14 @@ mb-5
                           </p>
 
                           <div
-  className="
+                            className="
     flex
     flex-col
     sm:flex-row
     flex-wrap
     gap-3
   "
->
+                          >
 
                             <button
                               onClick={() =>
@@ -2931,13 +2923,13 @@ sm:w-auto
               <div className="flex-1">
 
                 <h2
-  className="
+                  className="
     text-2xl
     md:text-3xl
     font-bold
     mb-6
   "
->
+                >
                   Submitted News
                 </h2>
 
@@ -2988,13 +2980,13 @@ flex-shrink-0
                           <div>
 
                             <h3
-  className="
+                              className="
     font-bold
     text-lg
     md:text-xl
     line-clamp-2
   "
->
+                            >
                               {article.aiTitle}
                             </h3>
 
@@ -3036,13 +3028,13 @@ font-medium
               <div className="flex-1">
 
                 <h2
-  className="
+                  className="
     text-2xl
     md:text-3xl
     font-bold
     mb-6
   "
->
+                >
                   Published News
                 </h2>
 
@@ -3094,13 +3086,13 @@ flex-shrink-0
                           <div>
 
                             <h3
-  className="
+                              className="
     font-bold
     text-lg
     md:text-xl
     line-clamp-2
   "
->
+                            >
                               {article.title}
                             </h3>
 
@@ -3226,14 +3218,14 @@ rounded-2xl
                 <div className="flex-1">
 
                   <h1
-  className="
+                    className="
     text-xl
     md:text-2xl
     lg:text-3xl
     font-bold
     leading-tight
 "
->
+                  >
                     {
                       selectedDraft.aiTitle
                     }
@@ -3344,14 +3336,14 @@ lg:pb-8
             >
 
               <div
-  className="
+                className="
     flex
     items-center
     justify-between
     mb-5
     md:mb-6
   "
->
+              >
 
                 <h2 className="text-xl
 md:text-2xl font-bold">
@@ -3465,7 +3457,7 @@ focus:ring-emerald-500
 "
               />
               <div
-  className="
+                className="
     flex
     flex-col
     sm:flex-row
@@ -3473,7 +3465,7 @@ focus:ring-emerald-500
     gap-3
     mt-6
   "
->
+              >
 
                 <button
                   onClick={() =>
@@ -3707,10 +3699,10 @@ py-3      rounded-xl
       {/* Mobile & Tablet Bottom Navigation */}
 
       {
-  showMoreMenu && (
+        showMoreMenu && (
 
-    <div
-      className="
+          <div
+            className="
         fixed
         bottom-20
         right-4
@@ -3722,55 +3714,55 @@ py-3      rounded-xl
         z-50
         lg:hidden
       "
-    >
+          >
 
-      <button
-        onClick={() => {
-          setActiveTab("raw");
-          setShowMoreMenu(false);
-        }}
-        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
-      >
-        📰 Raw Feed
-      </button>
+            <button
+              onClick={() => {
+                setActiveTab("raw");
+                setShowMoreMenu(false);
+              }}
+              className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+            >
+              📰 Raw Feed
+            </button>
 
-      <button
-        onClick={() => {
-          setActiveTab("draft");
-          setShowMoreMenu(false);
-        }}
-        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
-      >
-        📄 Drafts
-      </button>
+            <button
+              onClick={() => {
+                setActiveTab("draft");
+                setShowMoreMenu(false);
+              }}
+              className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+            >
+              📄 Drafts
+            </button>
 
-      <button
-        onClick={() => {
-          setActiveTab("submitted");
-          setShowMoreMenu(false);
-        }}
-        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
-      >
-        📤 Submitted
-      </button>
+            <button
+              onClick={() => {
+                setActiveTab("submitted");
+                setShowMoreMenu(false);
+              }}
+              className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+            >
+              📤 Submitted
+            </button>
 
-      <button
-        onClick={() => {
-          setActiveTab("published");
-          setShowMoreMenu(false);
-        }}
-        className="block w-full text-left px-5 py-3 hover:bg-gray-100"
-      >
-        ✅ Published
-      </button>
+            <button
+              onClick={() => {
+                setActiveTab("published");
+                setShowMoreMenu(false);
+              }}
+              className="block w-full text-left px-5 py-3 hover:bg-gray-100"
+            >
+              ✅ Published
+            </button>
 
-    </div>
+          </div>
 
-  )
-}
+        )
+      }
 
-<div
-  className="
+      <div
+        className="
     fixed
     bottom-0
     left-0
@@ -3781,88 +3773,88 @@ py-3      rounded-xl
     shadow-lg
     z-50
   "
->
+      >
 
-  <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4">
 
-    {/* Dashboard */}
+          {/* Dashboard */}
 
-    <button
-      onClick={() => {
-        setActiveTab("dashboard");
-        setShowMoreMenu(false);
-      }}
-      className="
+          <button
+            onClick={() => {
+              setActiveTab("dashboard");
+              setShowMoreMenu(false);
+            }}
+            className="
         flex
         flex-col
         items-center
         py-3
         text-xs
       "
-    >
-      📊
-      <span>Dashboard</span>
-    </button>
+          >
+            📊
+            <span>Dashboard</span>
+          </button>
 
-    {/* Create */}
+          {/* Create */}
 
-    <button
-      onClick={() => {
-        setActiveTab("create");
-        setShowMoreMenu(false);
-      }}
-      className="
+          <button
+            onClick={() => {
+              setActiveTab("create");
+              setShowMoreMenu(false);
+            }}
+            className="
         flex
         flex-col
         items-center
         py-3
         text-xs
       "
-    >
-      ✍️
-      <span>Create</span>
-    </button>
+          >
+            ✍️
+            <span>Create</span>
+          </button>
 
-    {/* AI */}
+          {/* AI */}
 
-    <button
-      onClick={() => {
-        setActiveTab("ai");
-        setShowMoreMenu(false);
-      }}
-      className="
+          <button
+            onClick={() => {
+              setActiveTab("ai");
+              setShowMoreMenu(false);
+            }}
+            className="
         flex
         flex-col
         items-center
         py-3
         text-xs
       "
-    >
-      🤖
-      <span>AI</span>
-    </button>
+          >
+            🤖
+            <span>AI</span>
+          </button>
 
-    {/* More */}
+          {/* More */}
 
-    <button
-      onClick={() =>
-        setShowMoreMenu(!showMoreMenu)
-      }
-      className="
+          <button
+            onClick={() =>
+              setShowMoreMenu(!showMoreMenu)
+            }
+            className="
         flex
         flex-col
         items-center
         py-3
         text-xs
       "
-    >
-      ☰
-      <span>More</span>
-    </button>
+          >
+            ☰
+            <span>More</span>
+          </button>
 
-  </div>
+        </div>
 
-</div>
+      </div>
 
     </>
 

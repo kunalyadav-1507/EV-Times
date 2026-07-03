@@ -1313,7 +1313,6 @@ const incrementViews = async (req, res) => {
 
 };
 
-
 module.exports = {
   getNewsByTopic,
   getNewsByCategory,

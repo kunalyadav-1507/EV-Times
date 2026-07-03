@@ -12,6 +12,9 @@ const getCategoryFromTopic =
 const states =
   require("../config/states");
 
+  const cleanupRawNews =
+require("../utils/cleanupRawNews");
+
 const fetchAllNews = async () => {
 
   try {
@@ -165,6 +168,7 @@ const fetchAllNews = async () => {
     console.log(
       "All News Fetched Successfully"
     );
+    await cleanupRawNews();
 
   }
 

@@ -148,7 +148,77 @@ res.status(200).json({
 
 };
 
+const verifyOTP = async (req, res) => {
+
+  try {
+
+    const { email, otp } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+
+      return res.status(404).json({
+
+        success: false,
+
+        message: "User not found"
+
+      });
+
+    }
+
+    if (user.resetOTP !== otp) {
+
+      return res.status(400).json({
+
+        success: false,
+
+        message: "Invalid OTP"
+
+      });
+
+    }
+
+    if (user.otpExpires < new Date()) {
+
+      return res.status(400).json({
+
+        success: false,
+
+        message: "OTP Expired"
+
+      });
+
+    }
+
+    res.status(200).json({
+
+      success: true,
+
+      message: "OTP Verified"
+
+    });
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+
+      success: false,
+
+      message: "Server Error"
+
+    });
+
+  }
+
+};
+
 module.exports = {
   registerUser,
-  loginUser,checkEmail
+  loginUser,checkEmail,verifyOTP
 };

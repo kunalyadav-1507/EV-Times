@@ -38,3 +38,21 @@ export const checkEmail = (email) => {
   );
 
 };
+
+export const verifyOTP = (email, otp) => {
+
+  return axios.post(
+
+    `${API}/auth/verify-otp`,
+
+    {
+
+      email,
+
+      otp
+
+    }
+
+  );
+
+};

@@ -1,14 +1,45 @@
 import { useState } from "react";
-import { checkEmail } from "../services/authService";
+import {
+  checkEmail,
+  verifyOTP
+}
+from "../services/authService";
 function ForgotPassword() {
 
   const [email, setEmail] = useState("");
+  const [showOTP, setShowOTP] = useState(false);
+
+const [otp, setOtp] = useState("");
   const handleCheckEmail = async () => {
 
   try {
 
     const response =
       await checkEmail(email);
+
+    console.log(response.data);
+    setShowOTP(true);
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+  }
+
+};
+const handleVerifyOTP = async () => {
+
+  try {
+
+    const response = await verifyOTP(
+
+      email,
+
+      otp
+
+    );
 
     console.log(response.data);
 
@@ -37,6 +68,7 @@ function ForgotPassword() {
           Enter your registered email address.
 
         </p>
+        
 
         <input
           type="email"
@@ -55,10 +87,63 @@ function ForgotPassword() {
             focus:ring-green-500
           "
         />
+        {
+  showOTP && (
+
+    <div className="mt-2 mb-4">
+
+      <label className="block mb-2 text-gray-700">
+
+        Enter OTP
+
+      </label>
+
+      <input
+
+        type="text"
+
+        maxLength={6}
+
+        value={otp}
+
+        onChange={(e)=>setOtp(e.target.value)}
+
+        placeholder="Enter 6-digit OTP"
+
+        className="
+        w-full
+        border
+        rounded-lg
+        px-4
+        py-3
+        focus:ring-2
+        focus:ring-green-500
+        "
+
+      />
+
+    </div>
+
+  )
+}
 
         <button
   type="button"
-  onClick={handleCheckEmail}
+  onClick={() => {
+
+  if (showOTP) {
+
+    handleVerifyOTP();
+
+  }
+
+  else {
+
+    handleCheckEmail();
+
+  }
+
+}}
   className="
     w-full
     bg-green-600
@@ -68,7 +153,11 @@ function ForgotPassword() {
     hover:bg-green-700
   "
 >
-  Send OTP
+  {
+  showOTP
+    ? "Verify OTP"
+    : "Send OTP"
+}
 </button>
 
       </div>

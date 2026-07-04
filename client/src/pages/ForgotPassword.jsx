@@ -1,15 +1,27 @@
 import { useState } from "react";
 import {
+
   checkEmail,
-  verifyOTP
-}
-from "../services/authService";
+
+  verifyOTP,
+
+  resetPassword
+
+} from "../services/authService";
+import { useNavigate } from "react-router-dom";
 function ForgotPassword() {
+    const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [showOTP, setShowOTP] = useState(false);
 
 const [otp, setOtp] = useState("");
+
+const [showResetPassword, setShowResetPassword] = useState(false);
+
+const [newPassword, setNewPassword] = useState("");
+
+const [confirmPassword, setConfirmPassword] = useState("");
   const handleCheckEmail = async () => {
 
   try {
@@ -41,7 +53,41 @@ const handleVerifyOTP = async () => {
 
     );
 
+    setShowResetPassword(true);
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+  }
+
+};
+
+const handleResetPassword = async () => {
+
+  if (newPassword !== confirmPassword) {
+
+    alert("Passwords do not match");
+
+    return;
+
+  }
+
+  try {
+
+    const response =
+      await resetPassword(
+        email,
+        newPassword
+      );
+
     console.log(response.data);
+
+    alert("Password Updated Successfully");
+
+    navigate("/login");
 
   }
 
@@ -88,7 +134,7 @@ const handleVerifyOTP = async () => {
           "
         />
         {
-  showOTP && (
+  showOTP && !showResetPassword &&  (
 
     <div className="mt-2 mb-4">
 
@@ -127,11 +173,55 @@ const handleVerifyOTP = async () => {
   )
 }
 
+{
+showResetPassword && (
+
+<div className="mt-6 space-y-4">
+
+<input
+
+type="password"
+
+placeholder="New Password"
+
+value={newPassword}
+
+onChange={(e)=>setNewPassword(e.target.value)}
+
+className="w-full border rounded-lg px-4 py-3 "
+
+/>
+
+<input
+
+type="password"
+
+placeholder="Confirm Password"
+
+value={confirmPassword}
+
+onChange={(e)=>setConfirmPassword(e.target.value)}
+
+className="w-full border rounded-lg px-4 py-3 mb-4"
+
+/>
+
+</div>
+
+)
+}
+
         <button
   type="button"
   onClick={() => {
 
-  if (showOTP) {
+  if (showResetPassword) {
+
+    handleResetPassword();
+
+  }
+
+  else if (showOTP) {
 
     handleVerifyOTP();
 
@@ -154,9 +244,15 @@ const handleVerifyOTP = async () => {
   "
 >
   {
-  showOTP
-    ? "Verify OTP"
-    : "Send OTP"
+showResetPassword
+?
+"Reset Password"
+:
+showOTP
+?
+"Verify OTP"
+:
+"Send OTP"
 }
 </button>
 

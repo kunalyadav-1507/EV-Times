@@ -43,13 +43,34 @@ export const verifyOTP = (email, otp) => {
 
   return axios.post(
 
-    `${API}/auth/verify-otp`,
+    `${API}/verify-otp`,
 
     {
 
       email,
 
       otp
+
+    }
+
+  );
+
+};
+
+export const resetPassword = (
+  email,
+  newPassword
+) => {
+
+  return axios.post(
+
+    `${API}/reset-password`,
+
+    {
+
+      email,
+
+      newPassword
 
     }
 

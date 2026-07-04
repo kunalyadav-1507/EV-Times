@@ -26,3 +26,15 @@ export const loginUser = async (userData) => {
   );
 
 };
+
+export const checkEmail = (email) => {
+
+  return axios.post(
+
+    `${API}/check-email`,
+
+    { email }
+
+  );
+
+};

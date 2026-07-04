@@ -89,7 +89,66 @@ const loginUser = async (req, res) => {
   }
 };
 
+
+
+const checkEmail = async (req, res) => {
+
+  try {
+
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+
+      return res.status(404).json({
+
+        success: false,
+        message: "Email not found"
+
+      });
+
+    }
+
+    const otp = Math.floor(
+  100000 + Math.random() * 900000
+).toString();
+
+user.resetOTP = otp;
+
+user.otpExpires =
+  new Date(Date.now() + 10 * 60 * 1000);
+
+await user.save();
+
+console.log("OTP:", otp);
+
+res.status(200).json({
+
+  success: true,
+
+  message: "OTP Generated"
+
+});
+
+  }
+
+  catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+
+      success: false,
+      message: "Server Error"
+
+    });
+
+  }
+
+};
+
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,checkEmail
 };

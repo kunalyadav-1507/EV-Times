@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 import { loginUser } from "../services/authService";
+import toast from "react-hot-toast";
 
 
 function Login() {
@@ -18,6 +19,8 @@ function Login() {
     password: ""
 
   });
+  const [loading, setLoading] = useState(false);
+
 
 
   const handleChange = (e) => {
@@ -38,6 +41,7 @@ function Login() {
     e.preventDefault();
 
     try {
+      setLoading(true);
 
       const response = await loginUser(formData);
 
@@ -58,6 +62,8 @@ function Login() {
         "role",
         response.data.role
       );
+      toast.success("Login Successful");
+      setLoading(false);
 
 
       // ROLE-BASED REDIRECT
@@ -86,7 +92,7 @@ function Login() {
 
       console.log(error);
 
-      alert("Invalid Email or Password");
+      toast.error("Invalid Email or Password");
 
 
       // CLEAR INPUTS
@@ -97,6 +103,7 @@ function Login() {
         password: ""
 
       });
+      setLoading(false);
 
     }
 
@@ -169,15 +176,32 @@ function Login() {
                     Password
                   </label>
 
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  />
+                  <div className="relative">
+
+  <input
+  type="password"
+  name="password"
+  placeholder="Enter your password"
+  value={formData.password}
+  onChange={handleChange}
+  required
+  autoComplete="current-password"
+  className="
+    w-full
+    border
+    border-gray-300
+    rounded-lg
+    px-4
+    py-3
+    focus:outline-none
+    focus:ring-2
+    focus:ring-green-500
+  "
+/>
+
+
+
+</div>
 
                 </div>
 
@@ -194,22 +218,41 @@ function Login() {
                   </label>
 
                   <button
-                    type="button"
-                    className="text-green-600 text-sm hover:underline"
-                  >
-                    Forgot Password?
-                  </button>
+type="button"
+onClick={() => navigate("/forgot-password")}
+className="
+text-green-600
+text-sm
+hover:underline
+"
+>
+
+Forgot Password?
+
+</button>
 
                 </div>
 
                 {/* Login */}
 
                 <button
-                  type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition"
-                >
-                  Login
-                </button>
+  type="submit"
+  disabled={loading}
+  className="
+    w-full
+    bg-green-600
+    hover:bg-green-700
+    disabled:bg-green-400
+    disabled:cursor-not-allowed
+    text-white
+    font-semibold
+    py-3
+    rounded-lg
+    transition-all
+  "
+>
+  {loading ? "Logging in..." : "Login"}
+</button>
 
                 {/* Signup */}
 

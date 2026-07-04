@@ -18,10 +18,20 @@ const userSchema = new mongoose.Schema({
   },
 
   role: {
-    type: String,
-    enum: ["admin", "editor"],
-    default: "editor"
-  }
+  type: String,
+  enum: ["admin", "editor"],
+  default: "editor"
+},
+
+resetOTP: {
+  type: String,
+  default: null
+},
+
+otpExpires: {
+  type: Date,
+  default: null
+}
 
 }, { timestamps: true });
 

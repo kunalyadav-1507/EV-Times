@@ -20,6 +20,7 @@ import TrendingNews from "./pages/TrendingNews";
 import FeaturedNews from "./pages/FeaturedNews";
 
 import EditorPicks from "./pages/EditorPicks";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
 
@@ -99,6 +100,11 @@ function App() {
 <Route
   path="/editor-picks"
   element={<EditorPicks />}
+/>
+
+<Route
+   path="/forgot-password"
+   element={<ForgotPassword />}
 />
 
       </Routes>

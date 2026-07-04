@@ -31,6 +31,10 @@ resetOTP: {
 otpExpires: {
   type: Date,
   default: null
+},
+otpVerified: {
+  type: Boolean,
+  default: false
 }
 
 }, { timestamps: true });

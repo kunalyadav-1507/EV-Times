@@ -119,6 +119,8 @@ user.resetOTP = otp;
 user.otpExpires =
   new Date(Date.now() + 10 * 60 * 1000);
 
+user.otpVerified = false;
+
 await user.save();
 
 console.log("OTP:", otp);
@@ -192,6 +194,10 @@ const verifyOTP = async (req, res) => {
 
     }
 
+    user.otpVerified = true;
+
+await user.save();
+
     res.status(200).json({
 
       success: true,
@@ -228,6 +234,17 @@ const resetPassword = async (req, res) => {
     } = req.body;
 
     const user = await User.findOne({ email });
+    if (!user.otpVerified) {
+
+  return res.status(400).json({
+
+    success: false,
+
+    message: "OTP verification required"
+
+  });
+
+}
 
     if (!user) {
 
@@ -245,7 +262,10 @@ const resetPassword = async (req, res) => {
 
     // Clear OTP after successful reset
     user.resetOTP = null;
-    user.otpExpires = null;
+
+user.otpExpires = null;
+
+user.otpVerified = false;
 
     await user.save();
 

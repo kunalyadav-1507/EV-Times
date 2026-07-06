@@ -8,6 +8,8 @@ const transporter = nodemailer.createTransport({
 
   secure: false,
 
+    family: 4,
+
 
   auth: {
 

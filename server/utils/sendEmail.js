@@ -1,53 +1,37 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-
   host: "smtp.gmail.com",
-
   port: 587,
-
   secure: false,
-
-    family: 4,
-
-
+  family: 4,
   auth: {
-
     user: process.env.EMAIL_USER,
-
     pass: process.env.EMAIL_PASS
-
   }
-
 });
 
 const sendEmail = async (to, subject, text) => {
 
-  try {
+  console.log("Verifying SMTP...");
 
-    await transporter.sendMail({
+  await transporter.verify();
 
-      from: `"EV Times" <${process.env.EMAIL_USER}>`,
+  console.log("SMTP Verified");
 
-      to,
+  await transporter.sendMail({
 
-      subject,
+    from: `"EV Times" <${process.env.EMAIL_USER}>`,
 
-      text
+    to,
 
-    });
+    subject,
 
-    console.log("Email Sent Successfully");
+    text
 
-  }
+  });
 
-  catch (error) {
-
-    console.log("Email Error:", error);
-
-    throw error;
-
-  }
+  console.log("Email Sent Successfully");
 
 };
 

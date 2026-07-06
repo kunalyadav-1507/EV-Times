@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const sendEmail = require("../utils/sendEmail");
 
 
 // REGISTER
@@ -123,7 +124,21 @@ user.otpVerified = false;
 
 await user.save();
 
-console.log("OTP:", otp);
+await sendEmail(
+
+  user.email,
+
+  "EV Times Password Reset OTP",
+
+  `Your OTP for password reset is: ${otp}
+
+This OTP is valid for 10 minutes.
+
+If you didn't request this password reset, please ignore this email.
+
+- EV Times Team`
+
+);
 
 res.status(200).json({
 

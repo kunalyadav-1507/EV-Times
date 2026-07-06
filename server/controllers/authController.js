@@ -123,6 +123,7 @@ user.otpExpires =
 user.otpVerified = false;
 
 await user.save();
+console.log("Before sendEmail");
 
 await sendEmail(
 
@@ -139,7 +140,7 @@ If you didn't request this password reset, please ignore this email.
 - EV Times Team`
 
 );
-
+console.log("After sendEmail");
 res.status(200).json({
 
   success: true,

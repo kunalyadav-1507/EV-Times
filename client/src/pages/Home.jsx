@@ -468,7 +468,10 @@ setNews(
     min-h-screen
     px-4
     md:px-8
-    py-8
+    xl:px-6
+    2xl:px-10
+    py-6
+    xl:py-5
   "
 >
 
@@ -484,7 +487,7 @@ setNews(
             {/* FEATURED HERO */}
 
 
-            <div className="grid grid-cols-1 xl:grid-cols-15 gap-6 mb-12">
+            <div className="grid grid-cols-1 xl:grid-cols-15 gap-4 mb-12">
 
               {/* LEFT COLUMN */}
 
@@ -505,19 +508,20 @@ setNews(
   w-full
   h-[250px]
   md:h-[350px]
-  xl:h-[450px]
+  xl:h-[380px]
   object-cover
   rounded-xl
 "
                   />
 
-                  <div className="bg-white text-black p-6 rounded-b-xl">
+                  <div className="bg-white text-black p-5 rounded-b-xl">
 
                     <h1
   className="
     text-2xl
-    md:text-3xl
-    xl:text-4xl
+md:text-3xl
+xl:text-[30px]
+leading-tight
     font-bold
     mb-4
   "
@@ -527,7 +531,13 @@ setNews(
 
                     </h1>
 
-                    <p className="text-black-300">
+                    <p
+  className="
+    text-gray-700
+    xl:text-[15px]
+    leading-7
+  "
+>
 
                       {
 
@@ -545,7 +555,7 @@ setNews(
 
                 {/* RELATED NEWS */}
 
-                <div className="mt-6 border-t border-gray-300 pt-4">
+                <div className="mt-4 border-t border-gray-300 pt-4">
 
                   <h3 className="font-bold text-lg mb-4">
 
@@ -605,11 +615,11 @@ setNews(
                       combinedNews[1]?.urlToImage
                     }
                     alt="news"
-                    className="w-full h-56 object-cover rounded-xl mb-4"
+                    className="w-full h-48 object-cover rounded-xl mb-4"
                   />
 
                   <h2 className=" text-xl
-    md:text-2xl
+    md:text-xl
     font-semibold mb-6 hover:underline">
 
                     {combinedNews[1]?.title}
@@ -656,15 +666,21 @@ setNews(
                           alt="news"
 
                           className="
-                w-24
-                h-20
+                w-20
+                h-16
                 object-cover
                 rounded-lg
               "
 
                         />
 
-                        <p className="hover:underline">
+                        <p
+  className="
+    hover:underline
+    text-[15px]
+    leading-6
+  "
+>
 
                           {article.title}
 
@@ -809,8 +825,8 @@ setNews(
 
                   <div
                     className="
-        w-[300px]
-        h-[450px]
+        w-[270px]
+        h-[400px]
         bg-white
         border
         rounded-xl

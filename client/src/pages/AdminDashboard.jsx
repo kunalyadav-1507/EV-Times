@@ -461,7 +461,7 @@ function AdminDashboard() {
     border-r
     border-emerald-900/50
     fixed
-    top-50
+    top-35
   "
         >
 

@@ -108,9 +108,10 @@ function Navbar() {
         <div
   className="
     px-3
-    lg:px-8
-    py-3
-    lg:py-2
+lg:px-6
+xl:px-8
+py-3
+lg:py-1.5
     flex
     items-center
     justify-between
@@ -124,11 +125,10 @@ function Navbar() {
 hidden
 lg:block
 absolute
-left-4
+left-6
 xl:left-8
-top-8
-xl:top-9
-"
+top-6
+xl:top-7"
           >
             <p
               className="
@@ -189,10 +189,10 @@ w-8
 h-8
 sm:w-10
 sm:h-10
-lg:w-12
-lg:h-16
-xl:w-16
-xl:h-24
+lg:w-10
+lg:h-14
+xl:w-14
+xl:h-20
 object-contain
 "
             />
@@ -201,8 +201,8 @@ object-contain
 
               <h1 className="text-lg
 sm:text-xl
-lg:text-2xl
-xl:text-4xl font-serif font-bold tracking-wide text-green-900">
+lg:text-xl
+xl:text-3xl font-serif font-bold tracking-wide text-green-900">
 
                 EV TIMES
 
@@ -211,7 +211,8 @@ xl:text-4xl font-serif font-bold tracking-wide text-green-900">
               <p className="
   hidden
   lg:block
-  text-medium
+  text-sm
+xl:text-base
   text-black-900
   tracking-wider
 ">
@@ -249,7 +250,8 @@ xl:text-4xl font-serif font-bold tracking-wide text-green-900">
         lg:flex
         items-center
         gap-2
-        text-xl
+        text-lg
+xl:text-xl
         font-semibold
         hover:text-blue-600
         transition
@@ -616,7 +618,7 @@ text-sm
 
           </div>
 
-          <div className="px-8 py-3 grid grid-cols-3 items-center">
+          <div className="px-6 xl:px-8 py-1.5 lg:py-1.5 grid grid-cols-3 items-center">
 
 
             {/* NAV LINKS */}
@@ -631,10 +633,10 @@ text-sm
     left-1/2
     -translate-x-1/2
     items-center
-    gap-5
-xl:gap-10
-text-base
-xl:text-2xl
+    gap-4
+xl:gap-8
+text-[15px]
+xl:text-xl
     font-semibold
     text-gray-600
   "
@@ -822,13 +824,13 @@ xl:text-2xl
       border
       border-gray-300
       px-4
-      py-2
+      py-1.5
       rounded-full
-      w-40
-lg:w-44
-xl:w-64
+      w-36
+lg:w-40
+xl:w-56
 text-sm
-xl:text-lg
+xl:text-base
       outline-none
       focus:ring-2
       focus:ring-gray-400

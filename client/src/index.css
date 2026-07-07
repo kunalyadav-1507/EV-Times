@@ -47,3 +47,18 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Desktop & Tablet */
+.login-left {
+  clip-path: polygon(0 0, 84% 0, 100% 50%, 84% 100%, 0 100%);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+  .login-left {
+    clip-path: none;
+    border-radius: 30px;
+  }
+
+}

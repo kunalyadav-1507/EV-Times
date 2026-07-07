@@ -116,7 +116,9 @@ function Login() {
 
 
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        className="relative min-h-screen flex items-center justify-center bg-cover
+bg-center
+bg-no-repeat"
         style={{
           backgroundImage: "url('backgroundImage.png')",
         }}
@@ -127,26 +129,69 @@ function Login() {
 ></div>
 
         {/* Content */}
-        <div className="relative z-10">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
 
-          <div className="relative w-[1000px] h-[620px] rounded-[30px] overflow-hidden shadow-2xl flex">
+  <div
+    className="
+      relative
+      mx-auto
+      w-full
+      max-w-[900px]
+      xl:max-w-[950px]
+      min-h-[560px]
+      rounded-[30px]
+      overflow-hidden
+      shadow-2xl
+      flex
+      flex-col
+      md:flex-row
+    "
+  >
 
             {/* LEFT SIDE */}
             <div
-              className="relative w-[47%] bg-white px-16 py-14 flex z-10"
-              style={{
-                clipPath: "polygon(0 0, 84% 0, 100% 50%, 84% 100%, 0 100%)",
-              }}
-            >
+  className="
+login-left
+relative
+w-full
+md:w-[46%]
+lg:w-[45%]
+bg-white
+px-6
+sm:px-8
+md:pr-14
+lg:px-14
+py-8
+sm:py-10
+lg:py-14
+flex
+z-10
+"
+>
 
-              <form onSubmit={handleSubmit} className="h-full flex flex-col justify-center">
+              <form
+  onSubmit={handleSubmit}
+  className="
+    h-full
+    w-full
+    max-w-[340px]
+    mx-auto
+    flex
+    flex-col
+    justify-center
+  "
+>
 
                 {/* Heading */}
-                <h1 className="text-5xl font-bold text-gray-900">
-                  Login
-                </h1>
+                <div className="text-center md:text-left">
 
-                <div className="w-14 h-1 bg-green-600 rounded-full mt-3 mb-12"></div>
+  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
+    Login
+  </h1>
+
+  <div className="w-14 h-1 bg-green-600 rounded-full mt-3 mb-12 mx-auto md:mx-0"></div>
+
+</div>
 
                 {/* Email */}
 
@@ -207,9 +252,26 @@ function Login() {
 
                 {/* Remember + Forgot */}
 
-                <div className="flex justify-between items-center mb-8">
+                <div className="
+flex
+justify-between
+items-center
+mb-8
+text-xs
+sm:text-sm
+">
 
-                  <label className="flex items-center gap-2 text-sm text-gray-600">
+                  <label
+  className="
+    flex
+    items-center
+    gap-2
+    text-xs
+    sm:text-sm
+    text-gray-600
+    whitespace-nowrap
+  "
+>
 
                     <input type="checkbox" />
 
@@ -222,10 +284,11 @@ type="button"
 onClick={() => navigate("/forgot-password")}
 className="
 text-green-600
-text-sm
+text-xs
+sm:text-sm
 hover:underline
-"
->
+whitespace-nowrap
+">
 
 Forgot Password?
 
@@ -256,7 +319,9 @@ Forgot Password?
 
                 {/* Signup */}
 
-                <p className="text-center text-gray-500 mt-8">
+                <p className="text-center
+text-sm
+sm:text-base text-gray-500 mt-8">
 
                   Don't have an account?
 
@@ -273,15 +338,28 @@ Forgot Password?
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="relative w-[53%] bg-[#0B1118] -ml-24">
+            <div className="
+hidden
+md:block
+relative
+md:w-[54%]
+lg:w-[55%]
+bg-[#0B1118]
+md:-ml-20
+lg:-ml-24
+">
 
 
 
 
-              <div className="flex flex-col justify-center h-full pl-28 pr-20 text-white">
+              <div className="flex flex-col justify-center h-full pl-16
+lg:pl-28
+pr-8
+lg:pr-20 text-white">
 
 
-                <h2 className="text-5xl font-bold leading-tight">
+                <h2 className="text-4xl
+lg:text-5xl font-bold leading-tight">
                   WELCOME
                   <br />
                   <span className="text-green-500">
@@ -291,7 +369,8 @@ Forgot Password?
 
                 <div className="w-14 h-1 bg-green-600 rounded-full mt-5 mb-8"></div>
 
-                <p className="text-gray-300 leading-8 text-lg">
+                <p className="text-gray-300 leading-8 text-base
+lg:text-lg">
                   Stay updated with the latest
                   electric vehicle news, trends,
                   and innovations from around
@@ -308,7 +387,8 @@ Forgot Password?
       absolute
       left-0
       bottom-0
-      w-70
+      w-44
+lg:w-64
       opacity-30
       select-none
       pointer-events-none
@@ -323,7 +403,8 @@ Forgot Password?
       absolute
       left-50
       bottom-2
-      w-60
+      w-36
+lg:w-52
       opacity-25
       select-none
       pointer-events-none

@@ -1,20 +1,16 @@
-const brevo = require("@getbrevo/brevo");
+const { BrevoClient } = require("@getbrevo/brevo");
 
-const apiInstance = new brevo.TransactionalEmailsApi();
+const brevo = new BrevoClient({
 
-apiInstance.setApiKey(
+  apiKey: process.env.BREVO_API_KEY,
 
-  brevo.TransactionalEmailsApiApiKeys.apiKey,
-
-  process.env.BREVO_API_KEY
-
-);
+});
 
 const sendEmail = async (to, subject, text) => {
 
   try {
 
-    const email = {
+    await brevo.transactionalEmails.sendTransacEmail({
 
       sender: {
 
@@ -38,19 +34,17 @@ const sendEmail = async (to, subject, text) => {
 
       textContent: text
 
-    };
+    });
 
-    await apiInstance.sendTransacEmail(email);
-
-    console.log("Email Sent Successfully");
+    console.log("✅ Email Sent Successfully");
 
   }
 
   catch (error) {
 
-    console.log("Brevo Error:");
+    console.log("❌ Brevo Error:");
 
-    console.log(error.response?.body || error);
+    console.log(error);
 
     throw error;
 

@@ -9,6 +9,7 @@ import {
 
 } from "../services/authService";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 function ForgotPassword() {
     const navigate = useNavigate();
 
@@ -22,14 +23,21 @@ const [showResetPassword, setShowResetPassword] = useState(false);
 const [newPassword, setNewPassword] = useState("");
 
 const [confirmPassword, setConfirmPassword] = useState("");
-  const handleCheckEmail = async () => {
+const [loading, setLoading] = useState(false);
+
+
+const handleCheckEmail = async () => {
 
   try {
 
-    const response =
-      await checkEmail(email);
+    setLoading(true);
+
+    const response = await checkEmail(email);
 
     console.log(response.data);
+
+    toast.success("OTP sent successfully.");
+
     setShowOTP(true);
 
   }
@@ -38,12 +46,28 @@ const [confirmPassword, setConfirmPassword] = useState("");
 
     console.log(error);
 
+    toast.error(
+
+      error.response?.data?.message ||
+
+      "Failed to send OTP."
+
+    );
+
+  }
+
+  finally {
+
+    setLoading(false);
+
   }
 
 };
 const handleVerifyOTP = async () => {
 
   try {
+
+    setLoading(true);
 
     const response = await verifyOTP(
 
@@ -53,6 +77,10 @@ const handleVerifyOTP = async () => {
 
     );
 
+    console.log(response.data);
+
+    toast.success("OTP verified successfully.");
+
     setShowResetPassword(true);
 
   }
@@ -61,15 +89,28 @@ const handleVerifyOTP = async () => {
 
     console.log(error);
 
+    toast.error(
+
+      error.response?.data?.message ||
+
+      "Invalid OTP."
+
+    );
+
+  }
+
+  finally {
+
+    setLoading(false);
+
   }
 
 };
-
 const handleResetPassword = async () => {
 
   if (newPassword !== confirmPassword) {
 
-    alert("Passwords do not match");
+    toast.error("Passwords do not match.");
 
     return;
 
@@ -77,23 +118,45 @@ const handleResetPassword = async () => {
 
   try {
 
-    const response =
-      await resetPassword(
-        email,
-        newPassword
-      );
+    setLoading(true);
+
+    const response = await resetPassword(
+
+      email,
+
+      newPassword
+
+    );
 
     console.log(response.data);
 
-    alert("Password Updated Successfully");
+    toast.success("Password updated successfully.");
 
-    navigate("/login");
+    setTimeout(() => {
+
+      navigate("/login");
+
+    }, 1500);
 
   }
 
   catch (error) {
 
     console.log(error);
+
+    toast.error(
+
+      error.response?.data?.message ||
+
+      "Failed to reset password."
+
+    );
+
+  }
+
+  finally {
+
+    setLoading(false);
 
   }
 
@@ -212,28 +275,33 @@ className="w-full border rounded-lg px-4 py-3 mb-4"
 }
 
         <button
+
   type="button"
+
+  disabled={loading}
+
   onClick={() => {
 
-  if (showResetPassword) {
+    if (showResetPassword) {
 
-    handleResetPassword();
+      handleResetPassword();
 
-  }
+    }
 
-  else if (showOTP) {
+    else if (showOTP) {
 
-    handleVerifyOTP();
+      handleVerifyOTP();
 
-  }
+    }
 
-  else {
+    else {
 
-    handleCheckEmail();
+      handleCheckEmail();
 
-  }
+    }
 
-}}
+  }}
+
   className="
     w-full
     bg-green-600
@@ -241,17 +309,47 @@ className="w-full border rounded-lg px-4 py-3 mb-4"
     py-3
     rounded-lg
     hover:bg-green-700
+    disabled:bg-green-400
+    disabled:cursor-not-allowed
+    transition
   "
 >
-  {
+ {
+loading
+?
+
 showResetPassword
 ?
-"Reset Password"
+
+"Resetting..."
+
 :
+
 showOTP
 ?
-"Verify OTP"
+
+"Verifying..."
+
 :
+
+"Sending OTP..."
+
+:
+
+showResetPassword
+?
+
+"Reset Password"
+
+:
+
+showOTP
+?
+
+"Verify OTP"
+
+:
+
 "Send OTP"
 }
 </button>

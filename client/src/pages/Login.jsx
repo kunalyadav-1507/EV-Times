@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 
 import { loginUser } from "../services/authService";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -261,23 +262,7 @@ text-xs
 sm:text-sm
 ">
 
-                  <label
-  className="
-    flex
-    items-center
-    gap-2
-    text-xs
-    sm:text-sm
-    text-gray-600
-    whitespace-nowrap
-  "
->
 
-                    <input type="checkbox" />
-
-                    Remember Me
-
-                  </label>
 
                   <button
 type="button"
@@ -319,20 +304,18 @@ Forgot Password?
 
                 {/* Signup */}
 
-                <p className="text-center
-text-sm
-sm:text-base text-gray-500 mt-8">
+<p className="text-center text-gray-500 mt-8 text-sm leading-6">
 
-                  Don't have an account?
+  Need an account?
 
-                  <span className="text-green-600 font-semibold cursor-pointer ml-2">
+  <Link
+    to="/contact"
+    className="text-green-600 font-semibold hover:underline ml-1"
+  >
+    Contact Administrator
+  </Link>
 
-                    Sign Up
-
-                  </span>
-
-                </p>
-
+</p>
               </form>
 
             </div>

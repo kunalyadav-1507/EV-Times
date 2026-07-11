@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
 
   role: {
   type: String,
-  enum: ["admin", "editor"],
-  default: "editor"
+  enum: ["admin", "editor", "user"],
+  default: "user"
 },
 
 resetOTP: {

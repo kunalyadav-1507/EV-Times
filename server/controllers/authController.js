@@ -8,7 +8,7 @@ const sendEmail = require("../utils/sendEmail");
 const registerUser = async (req, res) => {
   try {
 
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
 
@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role
+      role: "user"
     });
 
     res.status(201).json({
@@ -33,6 +33,8 @@ const registerUser = async (req, res) => {
     });
 
   } catch (error) {
+
+    console.log(error);
 
     res.status(500).json({
       error: error.message

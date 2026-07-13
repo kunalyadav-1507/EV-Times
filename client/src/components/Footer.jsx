@@ -468,25 +468,19 @@ w-full
 
             <div className="flex flex-wrap gap-4 text-xl md:text-2xl">
 
-              <a href="#">
+              <a href="https://www.facebook.com/ecoplugenergyindialimited/">
                 <FaFacebookF />
               </a>
 
-              <a href="#">
+              <a href="https://www.instagram.com/ecoplugofficial/">
                 <FaInstagram />
               </a>
 
-              <a href="#">
+              <a href="https://in.linkedin.com/company/ecoplugofficial">
                 <FaLinkedinIn />
               </a>
 
-              <a href="#">
-                <FaYoutube />
-              </a>
-
-              <a href="#">
-                <FaTelegramPlane />
-              </a>
+              
 
             </div>
 

@@ -353,13 +353,13 @@ xl:text-xl
     <button
       onClick={() => setShowProfile(!showProfile)}
       className="
-        w-11
-        h-11
+        w-8
+        h-8
         xl:w-14
         xl:h-14
         rounded-full
         bg-gradient-to-br
-        from-green-700
+        from-cyan-700
         to-teal-800
         text-white
         flex

@@ -492,7 +492,8 @@ function SearchResults() {
             {
               news[0] && (
 
-                <div
+                <Link
+                to={`/news/${news[0]?._id}`}
                   className="
         bg-white
         rounded-2xl
@@ -544,7 +545,7 @@ function SearchResults() {
 
                   </div>
 
-                </div>
+                </Link>
 
               )
             }

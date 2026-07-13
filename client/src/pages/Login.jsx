@@ -63,6 +63,18 @@ function Login() {
         "role",
         response.data.role
       );
+
+      // SAVE USER NAME
+localStorage.setItem(
+  "name",
+  response.data.name
+);
+
+// SAVE USER EMAIL
+localStorage.setItem(
+  "email",
+  response.data.email
+);
       toast.success("Login Successful");
       setLoading(false);
 

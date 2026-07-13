@@ -6,8 +6,17 @@ import { useNavigate } from "react-router-dom";
 
 import states from "../data/states";
 
-import { FaUserCircle } from "react-icons/fa";
-import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaBars,
+  FaTimes,
+  FaSearch,
+  FaBookmark,
+  FaSignOutAlt,
+  FaInfoCircle,
+  FaEnvelope,
+  FaTachometerAlt,
+} from "react-icons/fa";
 
 
 
@@ -25,24 +34,41 @@ function Navbar() {
 
   const [hideSearchBar, setHideSearchBar] = useState(false);
 
+  const [showProfile, setShowProfile] = useState(false);
+
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
 
-  const role = localStorage.getItem("role");
+const role = localStorage.getItem("role");
+
+const userName = localStorage.getItem("name");
+
+const userEmail = localStorage.getItem("email");
+
+const initials = userName
+  ? userName
+      .trim()
+      .split(/\s+/)
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2)
+  : "U";
 
 
 
 
   const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+  localStorage.removeItem("name");
+  localStorage.removeItem("email");
 
-    localStorage.removeItem("token");
+  setShowProfile(false);
 
-    localStorage.removeItem("role");
-
-    navigate("/");
-
-  };
+  navigate("/");
+};
   const handleSearch = (e) => {
 
     if (e.key === "Enter") {
@@ -319,40 +345,220 @@ xl:text-xl
 
               </>
 
-            ) : (
+) : (
+  <div className="relative">
 
-              <div className="hidden lg:flex items-center gap-5">
+    {/* PROFILE ICON */}
 
-                {(role === "admin" || role === "editor") && (
+    <button
+      onClick={() => setShowProfile(!showProfile)}
+      className="
+        w-11
+        h-11
+        xl:w-14
+        xl:h-14
+        rounded-full
+        bg-gradient-to-br
+        from-green-700
+        to-teal-800
+        text-white
+        flex
+        items-center
+        justify-center
+        text-lg
+        xl:text-xl
+        font-semibold
+        shadow-md
+        hover:scale-105
+        transition
+      "
+    >
+      {initials}
+    </button>
 
-                  <Link
-                    to={
-                      role === "admin"
-                        ? "/admin-dashboard"
-                        : "/editor-dashboard"
-                    }
-                    className="text-sm xl:text-xl font-semibold hover:text-blue-600 transition"
-                  >
+    {/* PROFILE DROPDOWN */}
 
-                    Dashboard
+    {showProfile && (
 
-                  </Link>
+      <div
+        className="
+          absolute
+          right-0
+          top-full
+          mt-3
+          w-[360px]
+          bg-white
+          rounded-2xl
+          shadow-2xl
+          border
+          border-gray-200
+          overflow-hidden
+          z-[9999]
+        "
+      >
 
-                )}
+        {/* USER INFO */}
 
-                <button
-                  onClick={handleLogout}
-                  className=" text-sm xl:text-xl font-semibold hover:text-red-500 transition"
-                >
+        <div className="flex items-center gap-5 px-7 py-7">
 
-                  Logout
+          <div
+            className="
+              w-20
+              h-20
+              rounded-full
+              bg-gradient-to-br
+              from-green-700
+              to-teal-800
+              text-white
+              flex
+              items-center
+              justify-center
+              text-3xl
+              font-medium
+              shrink-0
+            "
+          >
+            {initials}
+          </div>
 
-                </button>
+          <div className="min-w-0">
 
+            <h3 className="text-xl font-semibold text-black">
+              {userName}
+            </h3>
 
-              </div>
+            <p className="text-gray-600 mt-1 truncate">
+              {userEmail}
+            </p>
 
-            )}
+          </div>
+
+        </div>
+
+        {/* ACCOUNT OPTIONS */}
+
+        <div className="border-t border-gray-200 py-3">
+
+          <Link
+            to="/saved-news"
+            onClick={() => setShowProfile(false)}
+            className="
+              flex
+              items-center
+              gap-6
+              px-7
+              py-4
+              text-lg
+              hover:bg-gray-100
+              transition
+            "
+          >
+            <FaBookmark className="text-2xl text-gray-600" />
+
+            Saved News
+          </Link>
+
+          {(role === "admin" || role === "editor") && (
+
+            <Link
+              to={
+                role === "admin"
+                  ? "/admin-dashboard"
+                  : "/editor-dashboard"
+              }
+              onClick={() => setShowProfile(false)}
+              className="
+                flex
+                items-center
+                gap-6
+                px-7
+                py-4
+                text-lg
+                hover:bg-gray-100
+                transition
+              "
+            >
+              <FaTachometerAlt className="text-2xl text-gray-600" />
+
+              Dashboard
+            </Link>
+
+          )}
+
+          <button
+            onClick={() => {
+              handleLogout();
+              setShowProfile(false);
+            }}
+            className="
+              w-full
+              flex
+              items-center
+              gap-6
+              px-7
+              py-4
+              text-lg
+              hover:bg-gray-100
+              transition
+            "
+          >
+            <FaSignOutAlt className="text-2xl text-gray-600" />
+
+            Sign out
+          </button>
+
+        </div>
+
+        {/* OTHER OPTIONS */}
+
+        <div className="border-t border-gray-200 py-3">
+
+          <Link
+            to="/about"
+            onClick={() => setShowProfile(false)}
+            className="
+              flex
+              items-center
+              gap-6
+              px-7
+              py-4
+              text-lg
+              hover:bg-gray-100
+              transition
+            "
+          >
+            <FaInfoCircle className="text-2xl text-gray-600" />
+
+            About Us
+          </Link>
+
+          <Link
+            to="/contact"
+            onClick={() => setShowProfile(false)}
+            className="
+              flex
+              items-center
+              gap-6
+              px-7
+              py-4
+              text-lg
+              hover:bg-gray-100
+              transition
+            "
+          >
+            <FaEnvelope className="text-2xl text-gray-600" />
+
+            Contact Us
+          </Link>
+
+        </div>
+
+      </div>
+
+    )}
+
+  </div>
+)}
 
           </div>
 
